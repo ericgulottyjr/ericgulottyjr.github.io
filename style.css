@@ -91,3 +91,60 @@ footer {
         margin: 20px 10px;
     }
 }
+
+/* General card layout styling */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-size: 1.8em;
+    color: #333;
+}
+
+.card p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card .btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        width: 95%;
+    }
+}
