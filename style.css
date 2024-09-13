@@ -107,7 +107,7 @@ p {
 }
 
 /* Button Style */
-.card .github-link {
+.link {
     display: inline-block;
     font-size: 1.1em;
     color: #001f3f; /* Navy Blue */
@@ -118,7 +118,7 @@ p {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.card .github-link:hover {
+.link:hover {
     background-color: #001f3f; /* Navy Blue */
     color: #fff;
 }
@@ -184,7 +184,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    position: relative;
+    position: fixed;
     width: 100%;
     bottom: 0;
 }
