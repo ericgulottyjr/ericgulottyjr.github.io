@@ -6,6 +6,12 @@
     <title>Work Experience</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience</title>
+    <link rel="stylesheet" href="/style.css">
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
     <header>
@@ -24,7 +30,7 @@
             <h1>Work Experience</h1>
             <div class="timeline">
                 <!-- First Work Experience Entry -->
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-logo">
                         <img src="/images/MITRE Logo.png" alt="MITRE Logo">
                     </div>
@@ -39,7 +45,7 @@
                 </div>
 
                 <!-- Second Work Experience Entry -->
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-logo">
                         <img src="/images/MBTA.svg.png" alt="MBTA Logo">
                     </div>
@@ -51,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-logo">
                         <img src="/images/Boston_University_seal.png" alt="BU seal">
                     </div>
@@ -64,7 +70,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-logo">
                         <img src="/images/KTP Logo.png" alt="KTP Logo">
                     </div>
@@ -82,5 +88,26 @@
     <footer>
         <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
     </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init(); // Initialize AOS
+    </script>
+
+    <script>
+        // Select all Read More buttons
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', () => {
+                // Find the full description related to the clicked button
+                const fullDescription = button.previousElementSibling;
+                fullDescription.classList.toggle('hidden'); // Toggle hidden class
+    
+                // Change button text
+                button.textContent = fullDescription.classList.contains('hidden') ? 'Read More' : 'Read Less';
+            });
+        });
+    </script>
+    
 </body>
 </html>
