@@ -138,23 +138,6 @@ p {
     margin-bottom: 40px;
 }
 
-/* Vertical Timeline Styling */
-.timeline {
-    position: relative;
-    margin: 0 auto;
-    padding-left: 20px;
-}
-
-.timeline:before {
-    content: '';
-    position: absolute;
-    left: 50px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #001f3f; /* Navy Blue Timeline Line */
-}
-
 /* Hidden class to hide full content */
 .hidden {
     display: none;
@@ -176,18 +159,54 @@ p {
     background-color: #0056b3;
 }
 
+/* Vertical Timeline Styling */
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #001f3f; /* Navy Blue Timeline Line */
+}
+
+/* Vertical Timeline Styling */
+.timeline {
+    position: relative;
+    margin: 0 auto;
+    padding-left: 50px; /* Adjust padding to align with the circle */
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 80px; /* Adjust the position of the vertical line */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #001f3f; /* Navy Blue Timeline Line */
+}
+
 /* Timeline Item Styling */
 .timeline-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     margin-bottom: 40px;
     position: relative;
 }
 
+/* Fix Circle Position */
 .timeline-item:before {
     content: '';
     position: absolute;
-    left: 35px;
+    left: 65px; /* Adjust to align the circle with the timeline line */
+    top: 15px; /* Align circle vertically with the content */
     background-color: #001f3f; /* Navy Blue Circle */
     border-radius: 50%;
     width: 20px;
@@ -198,7 +217,7 @@ p {
 /* Logo Styling */
 .timeline-logo {
     flex-shrink: 0;
-    margin-right: 30px;
+    margin-right: 20px; /* Adjust margin for better spacing */
 }
 
 .timeline-logo img {
@@ -255,24 +274,29 @@ p {
     }
 
     .timeline:before {
-        left: 20px;
+        left: 50px; /* Align vertical line for smaller screens */
     }
 
     .timeline-item:before {
-        left: 10px;
+        left: 40px; /* Adjust circle alignment on small screens */
     }
 
     .timeline-logo {
-        margin-bottom: 20px;
+        margin-bottom: 10px; /* Add margin below the logo */
     }
 
     .timeline-logo img {
-        width: 50px;
+        width: 50px; /* Reduce logo size for smaller screens */
         height: 50px;
     }
 
     .timeline-content {
-        padding: 15px;
+        padding: 15px; /* Adjust padding for smaller screen sizes */
+        width: 100%;
+    }
+
+    .read-more {
+        margin-top: 10px;
     }
 }
 
