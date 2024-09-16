@@ -163,55 +163,35 @@ p {
 .timeline {
     position: relative;
     margin: 0 auto;
-    padding-left: 20px;
-}
-
-.timeline:before {
-    content: '';
-    position: absolute;
-    left: 50px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: #001f3f; /* Navy Blue Timeline Line */
-}
-
-/* Vertical Timeline Styling */
-.timeline {
-    position: relative;
-    margin: 0 auto;
     padding-left: 50px; /* Adjust padding to align with the circle */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add space between cards */
 }
 
 .timeline:before {
-    content: '';
-    position: absolute;
-    left: 80px; /* Adjust the position of the vertical line */
-    top: 0;
-    bottom: 0;
+    left: 20px; /* Move the timeline line closer to the left */
+    background-color: #001f3f; /* Keep the line navy blue */
     width: 2px;
-    background-color: #001f3f; /* Navy Blue Timeline Line */
 }
 
 /* Timeline Item Styling */
 .timeline-item {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
-    margin-bottom: 40px;
-    position: relative;
+    flex-direction: row; /* Keep horizontal layout on larger screens */
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px; /* Limit the max width to avoid stretching on large screens */
+    margin: 0 auto; /* Center the cards */
 }
 
-/* Fix Circle Position */
+/* Remove timeline circle */
 .timeline-item:before {
-    content: '';
-    position: absolute;
-    left: 65px; /* Adjust to align the circle with the timeline line */
-    top: 15px; /* Align circle vertically with the content */
-    background-color: #001f3f; /* Navy Blue Circle */
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    z-index: 1;
+    content: none; /* Remove the timeline dot */
 }
 
 /* Logo Styling */
@@ -235,7 +215,8 @@ p {
 /* Timeline Content Styling */
 .timeline-content {
     background-color: #fff;
-    padding: 20px;
+    flex: 1;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -275,28 +256,22 @@ p {
 
     .timeline:before {
         left: 50px; /* Align vertical line for smaller screens */
-    }
-
-    .timeline-item:before {
-        left: 40px; /* Adjust circle alignment on small screens */
-    }
 
     .timeline-logo {
-        margin-bottom: 10px; /* Add margin below the logo */
+        margin-bottom: 10px; /* Move logo to the top */
     }
 
     .timeline-logo img {
-        width: 50px; /* Reduce logo size for smaller screens */
+        width: 50px; /* Reduce logo size on smaller screens */
         height: 50px;
     }
 
     .timeline-content {
-        padding: 15px; /* Adjust padding for smaller screen sizes */
-        width: 100%;
-    }
+        width: 100%; /* Make sure the content takes full width */
+        padding: 10px;
 
     .read-more {
-        margin-top: 10px;
+        margin-top: 10px
     }
 }
 
