@@ -338,7 +338,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    position: relative; /* Ensure footer appears after content */
+    position: fixed; /* Ensure footer appears after content */
     width: 100%;
     bottom: 0;
 }
