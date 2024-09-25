@@ -256,6 +256,7 @@ p {
 
     .timeline:before {
         left: 50px; /* Align vertical line for smaller screens */
+    }
 
     .timeline-logo {
         margin-bottom: 10px; /* Move logo to the top */
@@ -269,9 +270,10 @@ p {
     .timeline-content {
         width: 100%; /* Make sure the content takes full width */
         padding: 10px;
+    }
 
     .read-more {
-        margin-top: 10px
+        margin-top: 10px;
     }
 }
 
@@ -336,7 +338,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
+    position: relative; /* Ensure footer appears after content */
     width: 100%;
     bottom: 0;
 }
