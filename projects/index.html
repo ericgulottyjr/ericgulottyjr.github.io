@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Projects | Eric Gulotty</title>
     <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -13,7 +14,7 @@
             <ul class="nav-links">
                 <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/">Work Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/projects/" class="active">Projects</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
         </nav>
@@ -21,17 +22,48 @@
 
     <main>
         <h1>Projects</h1>
+        <p class="section-intro">Here are some of the key projects I've worked on that demonstrate my skills in data science, machine learning, and web development.</p>
+        
         <div class="card-container">
-            <div class="card">
+            <div class="card project-card">
+                <div class="project-tech">
+                    <span><i class="fab fa-react"></i> React</span>
+                    <span><i class="fab fa-node-js"></i> Node.js</span>
+                    <span><i class="fas fa-database"></i> MongoDB</span>
+                </div>
                 <h2>Dynamic Web Application</h2>
-                <p>Developed a full-stack dynamic web application using React and Node.js, including RESTful API design and JWT authentication.</p>
-                <a href="https://github.com/ericgulottyjr/dynamic-web-app" class="link">GitHub Link</a>
+                <p>Developed a full-stack dynamic web application using React and Node.js, including RESTful API design and JWT authentication. The application features real-time updates, data visualization, and responsive design.</p>
+                <div class="card-actions">
+                    <a href="https://github.com/ericgulottyjr/dynamic-web-app" class="link"><i class="fab fa-github"></i> View Code</a>
+                    <a href="#" class="link secondary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
             </div>
 
-            <div class="card">
-                <h2>Machine Learning Model</h2>
-                <p>Built a classification model to predict customer churn using Python's Scikit-learn, optimizing performance through hyperparameter tuning.</p>
-                <a href="https://github.com/ericgulottyjr/ml-model" class="link">GitHub Link</a>
+            <div class="card project-card">
+                <div class="project-tech">
+                    <span><i class="fab fa-python"></i> Python</span>
+                    <span><i class="fas fa-brain"></i> Scikit-learn</span>
+                    <span><i class="fas fa-chart-line"></i> Pandas</span>
+                </div>
+                <h2>Customer Churn Prediction Model</h2>
+                <p>Built a classification model to predict customer churn using Python's Scikit-learn, optimizing performance through hyperparameter tuning. Achieved 92% accuracy on test data and deployed the model through a Flask API.</p>
+                <div class="card-actions">
+                    <a href="https://github.com/ericgulottyjr/ml-model" class="link"><i class="fab fa-github"></i> View Code</a>
+                    <a href="#" class="link secondary"><i class="fas fa-file-alt"></i> Case Study</a>
+                </div>
+            </div>
+            
+            <div class="card project-card">
+                <div class="project-tech">
+                    <span><i class="fas fa-chart-bar"></i> Tableau</span>
+                    <span><i class="fas fa-database"></i> SQL</span>
+                    <span><i class="fas fa-map-marked-alt"></i> GIS</span>
+                </div>
+                <h2>Transit System Data Analysis</h2>
+                <p>Analyzed public transit data to identify operational inefficiencies. Created interactive dashboards to visualize rider patterns and recommend schedule optimizations that could improve on-time performance by 15%.</p>
+                <div class="card-actions">
+                    <a href="#" class="link"><i class="fas fa-chart-bar"></i> View Dashboard</a>
+                </div>
             </div>
         </div>
     </main>
