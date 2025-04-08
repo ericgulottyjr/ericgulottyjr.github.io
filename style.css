@@ -118,25 +118,11 @@ main {
 /* 3D Parallax Title Effect */
 h1 {
     position: relative;
-    transform-style: preserve-3d;
     transition: transform 0.3s ease;
 }
 
-h1:before {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    color: var(--primary-color);
-    opacity: 0.1;
-    transform: translateZ(-10px);
-    width: 100%;
-    text-align: center;
-}
-
 h1:hover {
-    transform: translateZ(20px);
+    transform: translateY(-2px);
 }
 
 h1:after {
