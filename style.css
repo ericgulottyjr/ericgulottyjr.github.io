@@ -3,8 +3,8 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F8F9FA;
-    color: #073B4C;
+    background-color: #FFFBF6;
+    color: #2F4858;
     line-height: 1.6;
 }
 
@@ -38,7 +38,7 @@ header nav {
 }
 
 .nav-links a {
-    color: #073B4C;
+    color: #2F4858;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -48,12 +48,12 @@ header nav {
 }
 
 .nav-links a:hover {
-    background-color: #E6F9F5;
-    color: #06D6A0;
+    background-color: #FFF0E6;
+    color: #FF5E5B;
 }
 
 .nav-links a.active {
-    color: #06D6A0;
+    color: #FF5E5B;
     font-weight: 600;
 }
 
@@ -69,7 +69,7 @@ main {
 
 h1 {
     font-size: 2.5em;
-    color: #073B4C;
+    color: #2F4858;
     margin-bottom: 30px;
     font-weight: 700;
     position: relative;
@@ -83,7 +83,7 @@ h1:after {
     left: 0;
     width: 60px;
     height: 4px;
-    background: #06D6A0;
+    background: #FF5E5B;
     border-radius: 2px;
 }
 
@@ -91,7 +91,7 @@ p {
     font-size: 1.1em;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #073B4C;
+    color: #2F4858;
 }
 
 /* Card Container Styles */
@@ -143,18 +143,18 @@ p {
     display: inline-block;
     font-size: 0.95em;
     font-weight: 500;
-    color: #118AB2;
+    color: #FF5E5B;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 6px;
-    background-color: #E6F9F5;
+    background-color: #FFF0E6;
     transition: all 0.3s ease;
     border: none;
     text-align: center;
 }
 
 .link:hover {
-    background-color: #06D6A0;
+    background-color: #FF5E5B;
     color: #fff;
     transform: translateY(-2px);
 }
@@ -180,8 +180,8 @@ p {
 
 /* Read More button styling */
 .read-more {
-    background-color: #E6F9F5;
-    color: #118AB2;
+    background-color: #FFF0E6;
+    color: #FF5E5B;
     border: none;
     padding: 8px 16px;
     cursor: pointer;
@@ -193,7 +193,7 @@ p {
 }
 
 .read-more:hover {
-    background-color: #06D6A0;
+    background-color: #FF5E5B;
     color: #fff;
 }
 
@@ -281,7 +281,7 @@ p {
     font-weight: 500;
     margin-top: 15px;
     display: inline-block;
-    background-color: #E6F9F5;
+    background-color: #FFF0E6;
     padding: 5px 10px;
     border-radius: 4px;
 }
@@ -295,8 +295,8 @@ p {
 }
 
 .timeline-skills span {
-    background-color: #E6F9F5;
-    color: #118AB2;
+    background-color: #FFF0E6;
+    color: #FF5E5B;
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 0.85em;
@@ -334,9 +334,9 @@ p {
 
 .contact-card i {
     font-size: 2.5em;
-    color: #06D6A0;
+    color: #FF5E5B;
     margin-bottom: 20px;
-    background-color: #E6F9F5;
+    background-color: #FFF0E6;
     width: 80px;
     height: 80px;
     display: flex;
@@ -361,11 +361,11 @@ p {
     display: inline-block;
     font-size: 0.95em;
     font-weight: 500;
-    color: #118AB2;
+    color: #FF5E5B;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 6px;
-    background-color: #E6F9F5;
+    background-color: #FFF0E6;
     transition: all 0.3s ease;
     border: none;
     margin-top: 15px;
@@ -374,7 +374,7 @@ p {
 }
 
 .contact-link:hover {
-    background-color: #06D6A0;
+    background-color: #FF5E5B;
     color: #fff;
     transform: translateY(-2px);
 }
@@ -382,7 +382,7 @@ p {
 /* Footer Styles */
 footer {
     background-color: #ffffff;
-    color: #073B4C;
+    color: #2F4858;
     text-align: center;
     padding: 20px 0;
     position: fixed;
@@ -460,7 +460,7 @@ footer p {
 
 .hero-content h2 {
     font-size: 1.8em;
-    color: #06D6A0;
+    color: #FF9770;
     font-weight: 600;
     margin-top: -10px;
     margin-bottom: 20px;
@@ -475,7 +475,7 @@ footer p {
 .hero-button {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #06D6A0;
+    background-color: #FF5E5B;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -486,17 +486,17 @@ footer p {
 
 .hero-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(6, 214, 160, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 94, 91, 0.2);
 }
 
 .hero-button.secondary {
-    background-color: #E6F9F5;
-    color: #118AB2;
-    border: 1px solid #E6E6E6;
+    background-color: #FFF0E6;
+    color: #FF5E5B;
+    border: 1px solid #FFE8DC;
 }
 
 .hero-button.secondary:hover {
-    background-color: #D0F4EB;
+    background-color: #FFE8DC;
 }
 
 .hero-skills {
@@ -521,7 +521,7 @@ footer p {
     left: 0;
     width: 40px;
     height: 3px;
-    background: #06D6A0;
+    background: #FF5E5B;
     border-radius: 2px;
 }
 
@@ -548,7 +548,7 @@ footer p {
 }
 
 .skill-item i {
-    color: #06D6A0;
+    color: #FF5E5B;
     font-size: 1.2em;
 }
 
@@ -589,8 +589,8 @@ footer p {
 }
 
 .project-tech span {
-    background-color: #E6F9F5;
-    color: #118AB2;
+    background-color: #FFF0E6;
+    color: #FF5E5B;
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.85em;
@@ -611,13 +611,13 @@ footer p {
 }
 
 .link.secondary {
-    background-color: #E9ECEF;
-    color: #073B4C;
+    background-color: #FFF5F0;
+    color: #8C5E58;
 }
 
 .link.secondary:hover {
-    background-color: #CED4DA;
-    color: #073B4C;
+    background-color: #FFE8DC;
+    color: #8C5E58;
 }
 
 .link i {
@@ -650,7 +650,7 @@ footer p {
     left: 0;
     width: 40px;
     height: 3px;
-    background: #06D6A0;
+    background: #FF5E5B;
     border-radius: 2px;
 }
 
@@ -691,12 +691,12 @@ footer p {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #06D6A0;
-    box-shadow: 0 0 0 3px rgba(6, 214, 160, 0.1);
+    border-color: #FF5E5B;
+    box-shadow: 0 0 0 3px rgba(255, 94, 91, 0.1);
 }
 
 .submit-btn {
-    background-color: #06D6A0;
+    background-color: #FF5E5B;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -709,9 +709,9 @@ footer p {
 }
 
 .submit-btn:hover {
-    background-color: #05B084;
+    background-color: #FF4542;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(6, 214, 160, 0.2);
+    box-shadow: 0 10px 20px rgba(255, 94, 91, 0.2);
 }
 
 @media (max-width: 768px) {
