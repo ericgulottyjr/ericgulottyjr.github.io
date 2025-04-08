@@ -784,9 +784,19 @@ footer p {
     perspective: 1000px;
 }
 
+.project-card > div {
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover > div {
+    border-color: var(--primary-color);
+}
+
 .project-card:hover .card {
     transform: translateY(-10px) translateZ(30px) rotateX(2deg);
     box-shadow: 0 20px 40px var(--shadow-hover);
+    border-color: var(--primary-color);
 }
 
 .project-tech {
@@ -1044,6 +1054,7 @@ footer p {
 .project-card:hover .card {
     transform: translateY(-10px) translateZ(30px) rotateX(2deg);
     box-shadow: 0 20px 40px var(--shadow-hover);
+    border-color: var(--primary-color);
 }
 
 .project-tech span {
@@ -1103,4 +1114,26 @@ footer p {
 .submit-btn:hover {
     transform: translateY(-5px) translateZ(20px);
     box-shadow: 0 15px 30px rgba(41, 128, 185, 0.3);
+}
+
+/* AOS custom animation tweaks */
+[data-aos="fade-up"] {
+    transform: translate3d(0, 50px, 0);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 0.8s;
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+/* Custom hover effect for both timeline and project cards */
+.timeline-item:hover, 
+.project-card:hover .card {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 15px 30px var(--shadow-hover);
+    transition: all 0.3s ease;
 }
