@@ -19,6 +19,10 @@
                 <li><a href="/projects/">Projects</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </nav>
     </header>
 
@@ -129,6 +133,42 @@
                 button.textContent = fullDescription.classList.contains('hidden') ? 'Read More' : 'Read Less';
             });
         });
+    </script>
+    
+    <script>
+        // Theme toggling functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or default to system preference
+        const getCurrentTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        
+        // Apply the current theme
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateToggleButton(theme);
+        };
+        
+        // Update the toggle button appearance
+        const updateToggleButton = (theme) => {
+            themeToggle.classList.toggle('dark-mode', theme === 'dark');
+        };
+        
+        // Toggle between light and dark themes
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // Set initial theme on page load
+        applyTheme(getCurrentTheme());
     </script>
 </body>
 </html>

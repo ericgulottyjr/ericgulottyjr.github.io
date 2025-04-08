@@ -1,17 +1,62 @@
+/* Color Palette */
+:root {
+    /* Light Mode Colors */
+    --bg-color: #F0F8FF;
+    --card-bg: #FFFFFF;
+    --text-color: #1A3A5A;
+    --text-muted: #4A6585;
+    --primary-color: #3498DB;
+    --secondary-color: #2ECC71;
+    --accent-light: #E1F0FA;
+    --border-color: #E1E8ED;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --shadow-hover: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode colors - applied when data-theme="dark" is set on html element */
+html[data-theme="dark"] {
+    --bg-color: #0F172A;
+    --card-bg: #1E293B;
+    --text-color: #E2E8F0;
+    --text-muted: #94A3B8;
+    --primary-color: #38BDF8;
+    --secondary-color: #4ADE80;
+    --accent-light: #1E3A5F;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-hover: rgba(0, 0, 0, 0.4);
+}
+
+/* System preference based dark mode (fallback) */
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+        --bg-color: #0F172A;
+        --card-bg: #1E293B;
+        --text-color: #E2E8F0;
+        --text-muted: #94A3B8;
+        --primary-color: #38BDF8;
+        --secondary-color: #4ADE80;
+        --accent-light: #1E3A5F;
+        --border-color: #334155;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --shadow-hover: rgba(0, 0, 0, 0.4);
+    }
+}
+
 /* General Styles */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFBF6;
-    color: #2F4858;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
 /* Header and Navigation */
 header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 10px var(--shadow-color);
     padding: 16px 0;
     position: sticky;
     top: 0;
@@ -20,10 +65,11 @@ header {
 
 header nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .nav-links {
@@ -38,7 +84,7 @@ header nav {
 }
 
 .nav-links a {
-    color: #2F4858;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -48,12 +94,12 @@ header nav {
 }
 
 .nav-links a:hover {
-    background-color: #FFF0E6;
-    color: #FF5E5B;
+    background-color: var(--accent-light);
+    color: var(--primary-color);
 }
 
 .nav-links a.active {
-    color: #FF5E5B;
+    color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -62,14 +108,14 @@ main {
     max-width: 1200px;
     margin: 40px auto 100px;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 15px var(--shadow-color);
     border-radius: 12px;
 }
 
 h1 {
     font-size: 2.5em;
-    color: #2F4858;
+    color: var(--text-color);
     margin-bottom: 30px;
     font-weight: 700;
     position: relative;
@@ -83,7 +129,7 @@ h1:after {
     left: 0;
     width: 60px;
     height: 4px;
-    background: #FF5E5B;
+    background: var(--primary-color);
     border-radius: 2px;
 }
 
@@ -91,7 +137,7 @@ p {
     font-size: 1.1em;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #2F4858;
+    color: var(--text-color);
 }
 
 /* Card Container Styles */
@@ -106,12 +152,12 @@ p {
 
 /* Individual Card Styles */
 .card {
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px var(--shadow-color);
     transition: all 0.3s ease;
-    border: 1px solid #f3f4f6;
+    border: 1px solid var(--border-color);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -119,14 +165,14 @@ p {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: #e5e7eb;
+    box-shadow: 0 10px 25px var(--shadow-hover);
+    border-color: var(--border-color);
 }
 
 .card h2 {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #111827;
+    color: var(--text-color);
     font-weight: 600;
 }
 
@@ -134,7 +180,7 @@ p {
     font-size: 1em;
     margin-bottom: 20px;
     line-height: 1.6;
-    color: #4b5563;
+    color: var(--text-muted);
     flex-grow: 1;
 }
 
@@ -143,18 +189,18 @@ p {
     display: inline-block;
     font-size: 0.95em;
     font-weight: 500;
-    color: #FF5E5B;
+    color: var(--primary-color);
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 6px;
-    background-color: #FFF0E6;
+    background-color: var(--accent-light);
     transition: all 0.3s ease;
     border: none;
     text-align: center;
 }
 
 .link:hover {
-    background-color: #FF5E5B;
+    background-color: var(--primary-color);
     color: #fff;
     transform: translateY(-2px);
 }
@@ -168,7 +214,7 @@ p {
 
 .work-experience h1 {
     text-align: center;
-    color: #111827;
+    color: var(--text-color);
     font-size: 2.5em;
     margin-bottom: 50px;
 }
@@ -180,8 +226,8 @@ p {
 
 /* Read More button styling */
 .read-more {
-    background-color: #FFF0E6;
-    color: #FF5E5B;
+    background-color: var(--accent-light);
+    color: var(--primary-color);
     border: none;
     padding: 8px 16px;
     cursor: pointer;
@@ -193,7 +239,7 @@ p {
 }
 
 .read-more:hover {
-    background-color: #FF5E5B;
+    background-color: var(--primary-color);
     color: #fff;
 }
 
@@ -212,20 +258,20 @@ p {
     flex-direction: row;
     align-items: flex-start;
     padding: 30px;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px var(--shadow-color);
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    border: 1px solid #f3f4f6;
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
 .timeline-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: #e5e7eb;
+    box-shadow: 0 10px 25px var(--shadow-hover);
+    border-color: var(--border-color);
 }
 
 /* Logo Styling */
@@ -240,8 +286,8 @@ p {
     border-radius: 12px;
     object-fit: contain;
     padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px var(--shadow-color);
     transition: all 0.3s ease;
 }
 
@@ -255,7 +301,7 @@ p {
 }
 
 .timeline-content h2 {
-    color: #111827;
+    color: var(--text-color);
     font-size: 1.5em;
     margin-bottom: 5px;
     font-weight: 600;
@@ -263,13 +309,13 @@ p {
 
 .timeline-content h3 {
     font-size: 1.1em;
-    color: #4b5563;
+    color: var(--text-muted);
     margin-bottom: 15px;
     font-weight: 500;
 }
 
 .timeline-content p {
-    color: #4b5563;
+    color: var(--text-muted);
     font-size: 1em;
     line-height: 1.6;
     margin-bottom: 10px;
@@ -277,11 +323,11 @@ p {
 
 .timeline-date {
     font-size: 0.9em;
-    color: #6B7280;
+    color: var(--text-muted);
     font-weight: 500;
     margin-top: 15px;
     display: inline-block;
-    background-color: #FFF0E6;
+    background-color: var(--accent-light);
     padding: 5px 10px;
     border-radius: 4px;
 }
@@ -295,8 +341,8 @@ p {
 }
 
 .timeline-skills span {
-    background-color: #FFF0E6;
-    color: #FF5E5B;
+    background-color: var(--accent-light);
+    color: var(--primary-color);
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 0.85em;
@@ -314,12 +360,12 @@ p {
 }
 
 .contact-card {
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px var(--shadow-color);
     padding: 30px;
     text-align: center;
-    border: 1px solid #f3f4f6;
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -328,15 +374,15 @@ p {
 
 .contact-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    border-color: #e5e7eb;
+    box-shadow: 0 10px 25px var(--shadow-hover);
+    border-color: var(--border-color);
 }
 
 .contact-card i {
     font-size: 2.5em;
-    color: #FF5E5B;
+    color: var(--primary-color);
     margin-bottom: 20px;
-    background-color: #FFF0E6;
+    background-color: var(--accent-light);
     width: 80px;
     height: 80px;
     display: flex;
@@ -353,7 +399,7 @@ p {
 .contact-card h2 {
     font-size: 1.3em;
     margin-bottom: 15px;
-    color: #111827;
+    color: var(--text-color);
     font-weight: 600;
 }
 
@@ -361,11 +407,11 @@ p {
     display: inline-block;
     font-size: 0.95em;
     font-weight: 500;
-    color: #FF5E5B;
+    color: var(--primary-color);
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 6px;
-    background-color: #FFF0E6;
+    background-color: var(--accent-light);
     transition: all 0.3s ease;
     border: none;
     margin-top: 15px;
@@ -374,21 +420,21 @@ p {
 }
 
 .contact-link:hover {
-    background-color: #FF5E5B;
+    background-color: var(--primary-color);
     color: #fff;
     transform: translateY(-2px);
 }
 
 /* Footer Styles */
 footer {
-    background-color: #ffffff;
-    color: #2F4858;
+    background-color: var(--card-bg);
+    color: var(--text-muted);
     text-align: center;
     padding: 20px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -2px 10px var(--shadow-color);
 }
 
 footer p {
@@ -432,6 +478,21 @@ footer p {
     h1 {
         font-size: 2em;
     }
+
+    header nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .theme-toggle {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .nav-links {
+        margin: 10px 0;
+    }
 }
 
 /* Hero Section Styles */
@@ -460,7 +521,7 @@ footer p {
 
 .hero-content h2 {
     font-size: 1.8em;
-    color: #FF9770;
+    color: var(--secondary-color);
     font-weight: 600;
     margin-top: -10px;
     margin-bottom: 20px;
@@ -475,7 +536,7 @@ footer p {
 .hero-button {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #FF5E5B;
+    background-color: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -486,30 +547,30 @@ footer p {
 
 .hero-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 94, 91, 0.2);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
 }
 
 .hero-button.secondary {
-    background-color: #FFF0E6;
-    color: #FF5E5B;
-    border: 1px solid #FFE8DC;
+    background-color: var(--accent-light);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
 }
 
 .hero-button.secondary:hover {
-    background-color: #FFE8DC;
+    background-color: rgba(52, 152, 219, 0.1);
 }
 
 .hero-skills {
-    background-color: #f9fafb;
+    background-color: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 .hero-skills h3 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: #111827;
+    color: var(--text-color);
     position: relative;
     padding-bottom: 10px;
 }
@@ -521,7 +582,7 @@ footer p {
     left: 0;
     width: 40px;
     height: 3px;
-    background: #FF5E5B;
+    background: var(--primary-color);
     border-radius: 2px;
 }
 
@@ -532,23 +593,23 @@ footer p {
 }
 
 .skill-item {
-    background-color: white;
+    background-color: var(--card-bg);
     padding: 15px;
     border-radius: 8px;
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px var(--shadow-color);
     transition: all 0.3s ease;
 }
 
 .skill-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow-hover);
 }
 
 .skill-item i {
-    color: #FF5E5B;
+    color: var(--primary-color);
     font-size: 1.2em;
 }
 
@@ -572,7 +633,7 @@ footer p {
     max-width: 800px;
     margin: 0 auto 40px;
     text-align: center;
-    color: #4b5563;
+    color: var(--text-muted);
 }
 
 /* Project Card Styles */
@@ -589,8 +650,8 @@ footer p {
 }
 
 .project-tech span {
-    background-color: #FFF0E6;
-    color: #FF5E5B;
+    background-color: var(--accent-light);
+    color: var(--primary-color);
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 0.85em;
@@ -611,13 +672,13 @@ footer p {
 }
 
 .link.secondary {
-    background-color: #FFF5F0;
-    color: #8C5E58;
+    background-color: rgba(46, 204, 113, 0.1);
+    color: var(--secondary-color);
 }
 
 .link.secondary:hover {
-    background-color: #FFE8DC;
-    color: #8C5E58;
+    background-color: var(--secondary-color);
+    color: #fff;
 }
 
 .link i {
@@ -629,16 +690,16 @@ footer p {
     max-width: 800px;
     margin: 60px auto 20px;
     padding: 40px;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--border-color);
 }
 
 .contact-form-container h2 {
     font-size: 1.8em;
     margin-bottom: 30px;
-    color: #111827;
+    color: var(--text-color);
     position: relative;
     padding-bottom: 10px;
 }
@@ -650,7 +711,7 @@ footer p {
     left: 0;
     width: 40px;
     height: 3px;
-    background: #FF5E5B;
+    background: var(--primary-color);
     border-radius: 2px;
 }
 
@@ -674,29 +735,31 @@ footer p {
 
 .form-group label {
     font-weight: 500;
-    color: #4b5563;
+    color: var(--text-muted);
     font-size: 0.95em;
 }
 
 .form-group input,
 .form-group textarea {
     padding: 12px 16px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     font-family: 'Inter', sans-serif;
     font-size: 1em;
     transition: all 0.3s ease;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #FF5E5B;
-    box-shadow: 0 0 0 3px rgba(255, 94, 91, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .submit-btn {
-    background-color: #FF5E5B;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -709,9 +772,9 @@ footer p {
 }
 
 .submit-btn:hover {
-    background-color: #FF4542;
+    background-color: #2980b9;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 94, 91, 0.2);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -728,4 +791,44 @@ footer p {
     .contact-form-container {
         padding: 30px 20px;
     }
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    position: relative;
+    color: var(--text-color);
+    background-color: var(--accent-light);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+.theme-toggle .fa-moon {
+    display: block;
+}
+
+.theme-toggle.dark-mode .fa-sun {
+    display: block;
+}
+
+.theme-toggle.dark-mode .fa-moon {
+    display: none;
 }
