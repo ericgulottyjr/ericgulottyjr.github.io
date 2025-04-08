@@ -15,17 +15,17 @@
             display: flex;
             flex-direction: row;
             align-items: flex-start;
-            padding: 25px;
+            padding: 32px; /* Increased padding */
             background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 4px 6px var(--shadow-color);
+            border-radius: 16px; /* Increased border radius */
+            box-shadow: 0 6px 12px var(--shadow-color);
             width: 100%;
             max-width: 900px;
-            margin: 0 auto 25px; /* Reduced bottom margin */
+            margin: 0 auto 30px; /* Increased bottom margin */
             border: 1px solid var(--border-color);
             transform-style: preserve-3d;
             perspective: 1000px;
-            transition: all 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1.0); /* Smoother transition */
             position: relative;
             overflow: visible;
         }
@@ -36,64 +36,116 @@
             border-color: var(--primary-color);
         }
         
+        /* Make sure text remains visible on hover */
+        .timeline-item:hover .timeline-content p,
+        .timeline-item:hover .timeline-content h2,
+        .timeline-item:hover .timeline-content h3,
+        .timeline-item:hover .timeline-skills span,
+        .timeline-item:hover .read-more {
+            color: inherit; /* This ensures text keeps its original color */
+            opacity: 1; /* Ensures full visibility */
+        }
+        
         /* Timeline container spacing */
         .timeline {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Reduced gap between items */
+            gap: 28px; /* Increased gap between items */
             position: relative;
-            margin-top: 40px;
+            margin-top: 50px; /* Increased top margin */
         }
         
         /* Logo styling with enhanced hover effect */
         .timeline-logo {
             flex-shrink: 0;
-            margin-right: 30px;
+            margin-right: 35px; /* Increased margin */
             transition: all 0.3s ease;
         }
         
         .timeline-logo img {
-            width: 70px;
-            height: 70px;
-            border-radius: 12px;
+            width: 80px; /* Increased size */
+            height: 80px; /* Increased size */
+            border-radius: 14px; /* Increased border radius */
             object-fit: contain;
-            padding: 10px;
+            padding: 12px; /* Increased padding */
             background-color: var(--card-bg);
-            box-shadow: 0 4px 6px var(--shadow-color);
+            box-shadow: 0 4px 8px var(--shadow-color);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             filter: grayscale(20%);
             transform-origin: center;
+            border: 1px solid var(--border-color); /* Added border */
         }
         
         .timeline-item:hover .timeline-logo img {
             transform: scale(1.1) rotate(5deg);
             filter: grayscale(0%);
             box-shadow: 0 8px 16px var(--shadow-hover);
+            border-color: var(--primary-color); /* Border color changes on hover */
+        }
+        
+        /* Explicitly set text colors for content */
+        .timeline-content p {
+            color: var(--text-color);
+            line-height: 1.6; /* Improved line height */
+        }
+        
+        .timeline-content h2 {
+            color: var(--text-color);
+            font-size: 1.5rem; /* Increased font size */
+            margin-top: 0; /* Remove top margin */
+            letter-spacing: -0.01em; /* Slight letter spacing adjustment */
+        }
+        
+        .timeline-content h3 {
+            color: var(--text-muted);
+            font-size: 1.15rem; /* Increased font size */
+            letter-spacing: -0.01em; /* Slight letter spacing adjustment */
+        }
+
+        /* Style for bullet points in expanded descriptions */
+        .full-description {
+            padding-left: 5px; /* Add slight padding */
+            margin-top: 20px; /* Space above the full description */
+        }
+        
+        .full-description p {
+            margin-bottom: 15px; /* Space between paragraphs */
+            position: relative;
+            padding-left: 5px; /* Padding for bullet points */
+        }
+        
+        /* Short description styling */
+        .short-description {
+            font-size: 1.05em; /* Slightly larger */
+            line-height: 1.7; /* Better line height */
+            margin-bottom: 10px; /* Bottom margin */
         }
         
         /* Skill tags with hover effects */
         .timeline-skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 10px 0 15px;
+            gap: 10px; /* Increased gap */
+            margin: 12px 0 18px; /* Adjusted margins */
         }
         
         .timeline-skills span {
             background-color: var(--accent-light);
             color: var(--primary-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.85em;
+            padding: 6px 14px; /* Increased padding */
+            border-radius: 25px; /* More rounded */
+            font-size: 0.9em; /* Slightly larger */
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: default;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
         }
         
         .timeline-skills span:hover {
             transform: translateY(-3px);
             background-color: var(--primary-color);
             color: white;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
         }
         
         /* Read more button hover effect */
@@ -101,13 +153,13 @@
             background-color: var(--accent-light);
             color: var(--primary-color);
             border: none;
-            padding: 6px 14px;
+            padding: 8px 16px; /* Increased padding */
             cursor: pointer;
-            border-radius: 6px;
-            margin-top: 15px;
+            border-radius: 8px; /* Increased border radius */
+            margin-top: 18px; /* Increased top margin */
             transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 0.85em;
+            font-weight: 600; /* Bolder */
+            font-size: 0.9em; /* Slightly larger */
             display: inline-block;
             clear: both;
         }
@@ -116,22 +168,34 @@
             background-color: var(--primary-color);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* Enhanced shadow */
         }
         
         /* Timeline date hover effect */
         .timeline-date {
-            font-size: 0.9em;
-            font-weight: 500;
-            color: var(--text-muted);
+            font-size: 0.95em; /* Slightly larger */
+            font-weight: 600; /* Bolder */
+            color: var(--text-muted) !important; /* Use !important to override any other styles */
             display: inline-block;
-            margin-left: 15px;
+            margin-left: 0;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            background-color: transparent !important;
+            padding: 5px 0; /* Added padding */
+            margin-top: 10px; /* Added top margin */
         }
         
         .timeline-item:hover .timeline-date {
-            color: var(--primary-color);
+            color: var(--primary-color) !important;
             transform: translateX(5px);
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Hidden content handling */
+        .hidden {
+            display: none;
         }
         
         /* Fix AOS animation issues */
@@ -155,16 +219,20 @@
         }
         
         .timeline-content h2 {
-            margin-bottom: 5px;
+            margin-bottom: 2px; /* Reduced margin between title and location */
             transition: all 0.3s ease;
         }
         
         .timeline-content h3 {
             color: var(--text-muted);
             font-size: 1.1em;
-            margin-bottom: 12px;
+            margin-bottom: 8px; /* Reduced margin between location and skills */
             font-weight: 500;
             transition: all 0.3s ease;
+        }
+        
+        .timeline-content .short-description {
+            margin-top: 18px; /* Added space between skills and content */
         }
         
         .timeline-item:hover .timeline-content h2 {
@@ -216,13 +284,18 @@
                         <h3>MITRE</h3>
                         <div class="timeline-skills">
                             <span>Python</span>
-                            <span>Data Analysis</span>
-                            <span>Visualization</span>
+                            <span>Neural Networks</span>
+                            <span>Linear Optimization</span>
+                            <span>GAMS</span>
                         </div>
-                        <p class="short-description">Working on building analytical models to improve transit operations and developing data-driven solutions.</p>
-                        <p class="full-description hidden">Developing sophisticated data visualizations and collaborating with senior engineers to optimize routes. Leveraging real-time data from transit systems to create actionable insights that drive operational improvements and enhance passenger experience.</p>
+                        <p class="short-description">Designed multi-task CNN architectures, developed user interfaces for simulation models, and enhanced optimization constraints for large-scale modeling systems.</p>
+                        <div class="full-description hidden">
+                            <p>• Designed and prototyped a multi-task convolutional neural network (CNN) architecture, building a robust data pipeline to train and integrate the CNN into large-scale linear optimization models, improved efficiency by over 50% through CNN-driven approximations of initial solve points.</p>
+                            <p>• Developed an intuitive user interface enabling users to generate and manage input files for distinct simulation models, seamlessly integrating them into a broader modeling ecosystem.</p>
+                            <p>• Enhanced model accuracy by extracting and translating technical documentation into actionable linear optimization constraints, utilizing Python for data preprocessing and GAMS for constraint formulation.</p>
+                        </div>
                         <button class="read-more">Read More</button>
-                        <span class="timeline-date">2023 - Present</span>
+                        <span class="timeline-date">May 2024 - Present</span>
                     </div>
                 </div>
 
@@ -235,12 +308,21 @@
                         <h2>Transit Data Intern</h2>
                         <h3>Massachusetts Bay Transportation Authority (MBTA)</h3>
                         <div class="timeline-skills">
-                            <span>SQL</span>
-                            <span>Data Modeling</span>
-                            <span>GIS</span>
+                            <span>Tableau</span>
+                            <span>Python</span>
+                            <span>AWS S3</span>
+                            <span>Pandas</span>
+                            <span>PostgreSQL</span>
+                            <span>Exploratory Data Analysis</span>
                         </div>
-                        <p class="short-description">Worked on building analytical models to improve transit operations. Developed data visualizations and collaborated with engineers to optimize routes and schedules based on ridership patterns and operational constraints.</p>
-                        <span class="timeline-date">2022 - 2023</span>
+                        <p class="short-description">Created monitoring dashboards for MBTA supervisors, developed tools for prediction data analysis, and built validation services for passenger information systems.</p>
+                        <div class="full-description hidden">
+                            <p>• Constructed a Tableau dashboard for supervisors to monitor on-station officials' activity at terminal stations through integrating data from the MBTA's digital train sheet application. Prototyped a feature which captured user behavior, allowing officials to compare themselves against peers.</p>
+                            <p>• Developed a Python script to batch-download historical prediction files from AWS S3 buckets for Exploratory Data Analysis of MBTA prediction data. Leveraged Matplotlib to visualize prediction accuracy and improve the reliability of information displayed at stations to help combat slow zones.</p>
+                            <p>• Created a service to validate message accuracy on Variable Message Signs (VMS) during the Sumner Tunnel closure, interfaced with MBTA's V3 API and vendor-side logs through Pandas and PostgreSQL.</p>
+                        </div>
+                        <button class="read-more">Read More</button>
+                        <span class="timeline-date">June 2023 - August 2023</span>
                     </div>
                 </div>
 
@@ -254,12 +336,17 @@
                         <div class="timeline-skills">
                             <span>Python</span>
                             <span>Rust</span>
-                            <span>Teaching</span>
+                            <span>Workshops</span>
+                            <span>Linear Algebra</span>
+                            <span>Applied Algorithms</span>
+                            <span>Applied Statistics</span>
                         </div>
                         <p class="short-description">Provided 1-on-1 support for students within the computing and data science department.</p>
-                        <p class="full-description hidden">Lead programming workshops for Python and Rust, aiding students in understanding how to write efficient and effective code and providing guidance on best practices for programming in a data science context.</p>
+                        <div class="full-description hidden">
+                            <p>Lead programming workshops for Python and Rust, aiding students in understanding how to write efficient and effective code and providing guidance on best practices for programming in a data science context.</p>
+                        </div>
                         <button class="read-more">Read More</button>
-                        <span class="timeline-date">2022 - 2023</span>
+                        <span class="timeline-date">October 2022 - Present</span>
                     </div>
                 </div>
 
@@ -275,10 +362,8 @@
                             <span>Event Planning</span>
                             <span>Community Outreach</span>
                         </div>
-                        <p class="short-description">Responsible for organizing three philanthropic events per semester.</p>
-                        <p class="full-description hidden">Coordinated beach cleanups and fundraising events while establishing partnerships with local charities to maximize community impact and engagement.</p>
-                        <button class="read-more">Read More</button>
-                        <span class="timeline-date">2022 - 2023</span>
+                        <p class="short-description">Organized various philanthropic activities including food/clothing drives, fundraising events, and established connections with local charitable organizations.</p>
+                        <span class="timeline-date">September 2023 - July 2024</span>
                     </div>
                 </div>
             </div>
