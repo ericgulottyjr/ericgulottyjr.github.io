@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style.css">
     <!-- Font Awesome for icons (if needed) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -16,134 +16,163 @@
                 <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/">Work Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
-                <li><a href="/assignments/">Assignments</a></li>
+                <li><a href="/assignments/" class="active">Assignments</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </nav>
     </header>
     <main>
-        <h1>My Assignments</h1>
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 0: Dummy Assignment</h2>
-                <p>Dummy assignment to test personal website functionality. The repo conatins a single Python file that prints the sum of two user inputted numbers to the command line.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-0" class="link">Github Link</a>
+        <section class="work-experience">
+            <h1>My Assignments</h1>
+            <p class="section-intro">Course assignments and projects demonstrating my skills in data science and machine learning.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 0: Dummy Assignment</h2>
+                    <p>Dummy assignment to test personal website functionality. The repo conatins a single Python file that prints the sum of two user inputted numbers to the command line.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-0" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 1: Elevator Frequencies</h2>
-                <p>In this assignment, I analyze collected data on elevator positions on the ground floor of CDS. Through my analysis, I attempt to determine a point in the elevator bay that is more optimal than a naive point that sits at the exact center of the elevator bay.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-1" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 1: Elevator Frequencies</h2>
+                    <p>In this assignment, I analyze collected data on elevator positions on the ground floor of CDS. Through my analysis, I attempt to determine a point in the elevator bay that is more optimal than a naive point that sits at the exact center of the elevator bay.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-1" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 2: KMeans Clustering Visual Website</h2>
-                <p>In this assignment, I built a website that visualizes the clustering process of a KMeans algorithm given 4 initialization methods: a random initialization, farthest first, KMeans++, and manual, user selected centroid starting points. The website can display the convergence process iteratively or immediately. Here is a <a href = "https://youtube.com/shorts/bJ_yIVWKVoU?feature=share" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-2" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 2: KMeans Clustering Visual Website</h2>
+                    <p>In this assignment, I built a website that visualizes the clustering process of a KMeans algorithm given 4 initialization methods: a random initialization, farthest first, KMeans++, and manual, user selected centroid starting points. The website can display the convergence process iteratively or immediately. Here is a <a href = "https://youtube.com/shorts/bJ_yIVWKVoU?feature=share" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-2" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 3: KMeans Clustering Visual Website</h2>
-                <p>In this assignment, I implemented the SVD algorithm from scratch and used it to perform dimensionality reduction on the MNIST dataset. After performing dimensionality reduction, I chart the effect of different component numbers on training time and accuracy of a classifier model.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-3" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 3: KMeans Clustering Visual Website</h2>
+                    <p>In this assignment, I implemented the SVD algorithm from scratch and used it to perform dimensionality reduction on the MNIST dataset. After performing dimensionality reduction, I chart the effect of different component numbers on training time and accuracy of a classifier model.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-3" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 4: Latent Semantic Analysis (LSA) Search Engine Webpage</h2>
-                <p>In this assignment, I built an interactive web app that implements a basic search engine using Latent Semantic Analysis (LSA). The search engine takes a user's query, performs LSA on a dataset of documents, and returns the top documents based on cosine similarity. Here is a <a href = "https://youtube.com/shorts/DdPytfyVku4?feature=share" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-4" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 4: Latent Semantic Analysis (LSA) Search Engine Webpage</h2>
+                    <p>In this assignment, I built an interactive web app that implements a basic search engine using Latent Semantic Analysis (LSA). The search engine takes a user's query, performs LSA on a dataset of documents, and returns the top documents based on cosine similarity. Here is a <a href = "https://youtube.com/shorts/DdPytfyVku4?feature=share" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-4" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 5: KNN Kaggle Competition</h2>
-                <p>In this assignment, I built a K-Nearest Neighbors classifier from scratch using numpy to predict customer churn for a bank for a in-class Kaggle competiton.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-5" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 5: KNN Kaggle Competition</h2>
+                    <p>In this assignment, I built a K-Nearest Neighbors classifier from scratch using numpy to predict customer churn for a bank for a in-class Kaggle competiton.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-5" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Midterm: Amazon Movie Review Rating Prediction Competition</h2>
-                <p>CS506 Midterm, for this competition, I was tasked with building a model which took in user review data taken from Amazon Movies and predict a rating provided the corresponding metadata.</p>
-                <a href="https://github.com/ericgulottyjr/cs506-midterm-fall24" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Midterm: Amazon Movie Review Rating Prediction Competition</h2>
+                    <p>CS506 Midterm, for this competition, I was tasked with building a model which took in user review data taken from Amazon Movies and predict a rating provided the corresponding metadata.</p>
+                    <a href="https://github.com/ericgulottyjr/cs506-midterm-fall24" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 6: Linear Regression Website</h2>
-                <p>I created an interactive webpage that demonstrates how randomness affects linear regression results when there's no actual relationship between the variables X and Y. Users can adjust parameters like sample size, mean, variance, and the number of simulations to generate random datasets. In the following video, I demonstrate the app's functionality and explain some of my findings when trying different parameters: <a href = "https://youtu.be/aJcA00gK6Xc" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-6" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 6: Linear Regression Website</h2>
+                    <p>I created an interactive webpage that demonstrates how randomness affects linear regression results when there's no actual relationship between the variables X and Y. Users can adjust parameters like sample size, mean, variance, and the number of simulations to generate random datasets. In the following video, I demonstrate the app's functionality and explain some of my findings when trying different parameters: <a href = "https://youtu.be/aJcA00gK6Xc" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-6" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 7: Hypothesis Testing and Confidence Intervals in Linear Regression</h2>
-                <p> In this assignment, I built upon the website in assignment 6. I added the additional funcitonality of hypothesis testing and confidence interval construction. Users will be able to generate random sets of data, and test to see if the slope and intercept ultimately fitted to the dataset can be attributed to random chance through both hypothesis testing and confidence intervals. Here is a brief <a href = "https://youtu.be/M92BGA4EgxQ" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-7" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 7: Hypothesis Testing and Confidence Intervals in Linear Regression</h2>
+                    <p> In this assignment, I built upon the website in assignment 6. I added the additional funcitonality of hypothesis testing and confidence interval construction. Users will be able to generate random sets of data, and test to see if the slope and intercept ultimately fitted to the dataset can be attributed to random chance through both hypothesis testing and confidence intervals. Here is a brief <a href = "https://youtu.be/M92BGA4EgxQ" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-7" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 8: Logistic Regression Experiments</h2>
-                <p> In this assignment, I built a website that allows the user to separate two randomly generated clusters of data and simulate how logistic regression behaves as the classes become more and more separate. The website will plot each regression result and the value of several key parameters such as the slope, beta0, and beta1. Here is a brief <a href = "https://youtu.be/RqI8PE-6Axg" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-8" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 8: Logistic Regression Experiments</h2>
+                    <p> In this assignment, I built a website that allows the user to separate two randomly generated clusters of data and simulate how logistic regression behaves as the classes become more and more separate. The website will plot each regression result and the value of several key parameters such as the slope, beta0, and beta1. Here is a brief <a href = "https://youtu.be/RqI8PE-6Axg" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-8" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 9: Neural Networks</h2>
-                <p> In this assignment, I implemented and analyzed a simple neural network by visualizing its learned features, decision boundary, and gradients via a live visual on a website. The user is allowed to input one of three activation functions: tanh, sigmoid, or ReLU, a learning rate, and a step number, after which the website will generate the aforementioned visuals detailing the behavior and learning progress of a Feedforward Neural Network with one hidden layer. Here is a brief <a href = "https://youtu.be/xTPRxLaCKQg" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-9" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 9: Neural Networks</h2>
+                    <p> In this assignment, I implemented and analyzed a simple neural network by visualizing its learned features, decision boundary, and gradients via a live visual on a website. The user is allowed to input one of three activation functions: tanh, sigmoid, or ReLU, a learning rate, and a step number, after which the website will generate the aforementioned visuals detailing the behavior and learning progress of a Feedforward Neural Network with one hidden layer. Here is a brief <a href = "https://youtu.be/xTPRxLaCKQg" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-9" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 10: Image Search</h2>
-                <p> In this assignment, I implemented a GUI that allows the user to either imput a text query or an image query. After hitting the search button, the user sees the top 5 most relevant images related to their inputted text/image. Here is a brief <a href = "https://youtube.com/shorts/OyfSYr1DtGA?feature=share" >demo video</a>.</p>
-                <a href="https://github.com/ericgulottyjr/egulotty-assignment-10" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 10: Image Search</h2>
+                    <p> In this assignment, I implemented a GUI that allows the user to either imput a text query or an image query. After hitting the search button, the user sees the top 5 most relevant images related to their inputted text/image. Here is a brief <a href = "https://youtube.com/shorts/OyfSYr1DtGA?feature=share" >demo video</a>.</p>
+                    <a href="https://github.com/ericgulottyjr/egulotty-assignment-10" class="link">Github Link</a>
+                </div>
             </div>
 
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>Assignment 10: Image Search</h2>
-                <p> Extra credit assignment, implemented a random forest classifer to label a sythetic dataset of credit card transactions as either real or fradulent.
-                <a href="https://github.com/ericgulottyjr/cs506-extra-credit" class="link">Github Link</a>
+            <div class="card-container">
+                <div class="card">
+                    <h2>Assignment 10: Image Search</h2>
+                    <p> Extra credit assignment, implemented a random forest classifer to label a sythetic dataset of credit card transactions as either real or fradulent.
+                    <a href="https://github.com/ericgulottyjr/cs506-extra-credit" class="link">Github Link</a>
+                </div>
             </div>
-
-        </div>
-
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
     </footer>
+    
+    <script>
+        // Theme toggling functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or default to system preference
+        const getCurrentTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        
+        // Apply the current theme
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateToggleButton(theme);
+        };
+        
+        // Update the toggle button appearance
+        const updateToggleButton = (theme) => {
+            themeToggle.classList.toggle('dark-mode', theme === 'dark');
+        };
+        
+        // Toggle between light and dark themes
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // Set initial theme on page load
+        applyTheme(getCurrentTheme());
+    </script>
 </body>
 </html>
