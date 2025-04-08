@@ -65,7 +65,7 @@
                             <span>Data Modeling</span>
                             <span>GIS</span>
                         </div>
-                        <p>Worked on building analytical models to improve transit operations. Developed data visualizations and collaborated with engineers to optimize routes and schedules based on ridership patterns and operational constraints.</p>
+                        <p class="short-description">Worked on building analytical models to improve transit operations. Developed data visualizations and collaborated with engineers to optimize routes and schedules based on ridership patterns and operational constraints.</p>
                         <span class="timeline-date">2022 - 2023</span>
                     </div>
                 </div>
@@ -82,7 +82,9 @@
                             <span>Rust</span>
                             <span>Teaching</span>
                         </div>
-                        <p>Provided 1-on-1 support for students within the computing and data science department. Lead programming workshops for Python and Rust, aiding students in understanding how to write efficient and effective code and providing guidance on best practices for programming in a data science context.</p>
+                        <p class="short-description">Provided 1-on-1 support for students within the computing and data science department.</p>
+                        <p class="full-description hidden">Lead programming workshops for Python and Rust, aiding students in understanding how to write efficient and effective code and providing guidance on best practices for programming in a data science context.</p>
+                        <button class="read-more">Read More</button>
                         <span class="timeline-date">2022 - 2023</span>
                     </div>
                 </div>
@@ -99,7 +101,9 @@
                             <span>Event Planning</span>
                             <span>Community Outreach</span>
                         </div>
-                        <p>Responsible for organizing three philanthropic events per semester. Coordinated beach cleanups and fundraising events while establishing partnerships with local charities to maximize community impact and engagement.</p>
+                        <p class="short-description">Responsible for organizing three philanthropic events per semester.</p>
+                        <p class="full-description hidden">Coordinated beach cleanups and fundraising events while establishing partnerships with local charities to maximize community impact and engagement.</p>
+                        <button class="read-more">Read More</button>
                         <span class="timeline-date">2022 - 2023</span>
                     </div>
                 </div>
@@ -117,7 +121,8 @@
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
-            once: true
+            once: false,
+            mirror: true
         });
     </script>
 
@@ -131,6 +136,44 @@
     
                 // Change button text
                 button.textContent = fullDescription.classList.contains('hidden') ? 'Read More' : 'Read Less';
+            });
+        });
+
+        // Function to check content length and show/hide read more buttons
+        function handleReadMoreButtons() {
+            document.querySelectorAll('.timeline-content').forEach(content => {
+                const shortDesc = content.querySelector('.short-description');
+                const fullDesc = content.querySelector('.full-description');
+                const readMoreBtn = content.querySelector('.read-more');
+                
+                // If there's no full description or it's empty, hide the read more button
+                if (!fullDesc || fullDesc.textContent.trim().length === 0) {
+                    if (readMoreBtn) readMoreBtn.style.display = 'none';
+                }
+            });
+        }
+
+        // Run when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            handleReadMoreButtons();
+            
+            // Add data-text attribute to all h1 elements for 3D effect
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(h1 => {
+                h1.setAttribute('data-text', h1.textContent);
+            });
+        });
+
+        // Add simplified hover effect for timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const logo = this.querySelector('.timeline-logo img');
+                if (logo) logo.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const logo = this.querySelector('.timeline-logo img');
+                if (logo) logo.style.transform = '';
             });
         });
     </script>
