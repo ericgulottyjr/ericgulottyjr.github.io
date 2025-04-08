@@ -85,14 +85,6 @@
         
         // Set initial theme on page load
         applyTheme(getCurrentTheme());
-        
-        // Add data-text attribute to all h1 elements for 3D effect
-        document.addEventListener('DOMContentLoaded', function() {
-            const h1Elements = document.querySelectorAll('h1');
-            h1Elements.forEach(h1 => {
-                h1.setAttribute('data-text', h1.textContent);
-            });
-        });
     </script>
 </body>
 </html>
