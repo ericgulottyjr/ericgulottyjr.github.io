@@ -3,9 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Projects | Eric Gulotty</title>
     <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        /* Reset problematic CSS from the main stylesheet */
+        .project-card {
+            overflow: visible;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .project-card > div {
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+        
+        .project-card:hover > div {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-hover);
+        }
+        
+        /* Fix card container styles for single column layout (mobile) */
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 40px auto;
+            padding: 20px 10px;
+        }
+        
+        /* Adjusted card styles */
+        .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            margin: 0;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        
+        /* Content styling */
+        .card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content p {
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+        
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+        }
+        
+        /* Placeholder styling */
+        .project-placeholder {
+            background-color: var(--accent-light);
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .project-card:hover .project-placeholder {
+            background-color: rgba(52, 152, 219, 0.15);
+            transform: scale(1.02);
+        }
+        
+        /* Fix section wrapper */
+        .work-experience {
+            padding: 0;
+            overflow: visible;
+        }
+        
+        /* Tech tags spacing */
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        /* Tech tag hover effect */
+        .project-tech span {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .project-tech span:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Button hover effects */
+        .link {
+            transition: all 0.3s ease;
+        }
+        
+        .link:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive layout */
+        @media (min-width: 768px) {
+            .card-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 60px 30px; /* Increased vertical gap between rows */
+                margin-bottom: 60px; /* Add extra margin at the bottom */
+            }
+            
+            .project-card {
+                margin-bottom: 0;
+                margin-top: 0;
+                position: relative; /* Allow proper spacing */
+                height: 100%;
+            }
+            
+            /* Apply spacing for cards in a row */
+            .project-card:nth-child(n+3) {
+                padding-top: 20px; /* Extra padding for cards after the first row */
+            }
+        }
+        
+        /* Fix AOS animation issues */
+        [data-aos] {
+            pointer-events: auto !important;
+        }
+        
+        [data-aos].animated {
+            pointer-events: auto !important;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,31 +163,171 @@
             <ul class="nav-links">
                 <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/">Work Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/projects/" class="active">Projects</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </nav>
     </header>
 
     <main>
-        <h1>Projects</h1>
-        <div class="card-container">
-            <div class="card">
-                <h2>Dynamic Web Application</h2>
-                <p>Developed a full-stack dynamic web application using React and Node.js, including RESTful API design and JWT authentication.</p>
-                <a href="https://github.com/ericgulottyjr/dynamic-web-app" class="link">GitHub Link</a>
-            </div>
+        <section class="work-experience">
+            <h1 data-text="Projects">Projects</h1>
+            <p class="section-intro">Here are some of the key projects I've worked on that demonstrate my skills in data science, machine learning, and (lightly) web development.</p>
+        
+            <div class="card-container">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="card">
+                        <div class="project-placeholder">
+                            <i class="fas fa-robot fa-2x"></i>
+                        </div>
+                        <div class="project-tech">
+                            <span><i class="fab fa-rust"></i> Rust</span>
+                            <span><i class="fas fa-brain"></i> LLM</span>
+                            <span><i class="fas fa-server"></i> Web Server</span>
+                        </div>
+                        <div class="card-content">
+                            <h2>Llama on Rust</h2>
+                            <p>Developed a lightweight web interface for interacting with open-source Large Language Models (LLMs) powered by Rust. Built with a clean client-server architecture leveraging mistral.rs for the backend, supporting various model formats including GGUF and Hugging Face models. Features configurable parameters for temperature, top-p, and max tokens.</p>
+                            <div class="card-actions">
+                                <a href="https://github.com/ericgulottyjr/llama-on-rust" class="link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                <a href="https://github.com/ericgulottyjr/llama-on-rust#readme" class="link secondary" target="_blank"><i class="fas fa-book"></i> Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="card">
-                <h2>Machine Learning Model</h2>
-                <p>Built a classification model to predict customer churn using Python's Scikit-learn, optimizing performance through hyperparameter tuning.</p>
-                <a href="https://github.com/ericgulottyjr/ml-model" class="link">GitHub Link</a>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="project-placeholder">
+                            <i class="fas fa-chart-line fa-2x"></i>
+                        </div>
+                        <div class="project-tech">
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-brain"></i> XGBoost</span>
+                            <span><i class="fas fa-chart-bar"></i> Data Visualization</span>
+                        </div>
+                        <div class="card-content">
+                            <h2>Airbnb Pricing Prediction Model</h2>
+                            <p>Developed a machine learning model to predict Airbnb rental prices in NYC using a dataset of 48,000+ listings. Implemented feature engineering, data preprocessing, and model selection, achieving 64% variance explanation with XGBoost. Generated actionable insights on key price determinants like room type, location, and occupancy rate.</p>
+                            <div class="card-actions">
+                                <a href="https://github.com/ericgulottyjr/NYC-Airbnb-Pricing-Prediction/tree/main" class="link" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                <a href="https://github.com/ericgulottyjr/NYC-Airbnb-Pricing-Prediction/blob/main/README.md" class="link secondary" target="_blank"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card">
+                        <div class="project-placeholder">
+                            <i class="fas fa-subway fa-2x"></i>
+                        </div>
+                        <div class="project-tech">
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fab fa-microsoft"></i> MS Azure</span>
+                            <span><i class="fas fa-database"></i> SQL</span>
+                            <span><i class="fas fa-brain"></i> Machine Learning</span>
+                            <span><i class="fas fa-chart-bar"></i> Data Visualization</span>
+                        </div>
+                        <div class="card-content">
+                            <h2>MBTA System Analysis</h2>
+                            <p>Developed a comprehensive data analytics system to identify and address bottlenecks in Boston's transit system. Implemented a cloud-based architecture on MS Azure that integrates real-time MBTA operational data with weather information to predict headway and dwell times. Used Gradient Boosted Trees to achieve up to 77% prediction accuracy on both headway and dwell times, revealing significant correlations between weather conditions and transit delays.</p>
+                            <div class="card-actions">
+                                <a href="/assets/mbta/Final-Report.pdf" class="link" target="_blank"><i class="fas fa-file-alt"></i> View Findings</a>
+                                <a href="/assets/mbta/data-architecture.png" class="link secondary" target="_blank"><i class="fas fa-project-diagram"></i> Data Architecture</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="project-placeholder">
+                            <i class="fas fa-baseball-ball fa-2x"></i>
+                        </div>
+                        <div class="project-tech">
+                            <span><i class="fab fa-python"></i> Python</span>
+                            <span><i class="fas fa-brain"></i> Machine Learning</span>
+                            <span><i class="fas fa-chart-bar"></i> Data Visualization</span>
+                        </div>
+                        <div class="card-content">
+                            <h2>MLB Player Analysis</h2>
+                            <p>Analyzed MLB player data to determine the ideal height and weight for successful players. Used PCA and K-means clustering to identify player types and linear regression to quantify the relationship between performance metrics (Wins Above Replacement, Runs Created) and player salaries. Attempted to find the height and weight that maximizes the player's average WAR value.</p>
+                            <div class="card-actions">
+                                <a href="https://github.com/ericgulottyjr/mlb-player-analysis/blob/main/MLB%20Player%20Analysis.ipynb" class="link" target="_blank"><i class="fas fa-laptop-code"></i> View Notebook</a>
+                                <a href="https://github.com/ericgulottyjr/mlb-player-analysis/blob/main/README.md" class="link secondary" target="_blank"><i class="fas fa-file-alt"></i> Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
+        <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
+    
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            mirror: false,
+            offset: 40,
+            delay: 0
+        });
+        
+        // Re-enable pointer events after animations complete
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelectorAll('[data-aos]').forEach(function(el) {
+                    el.style.pointerEvents = 'auto';
+                });
+            }, 1000);
+        });
+    </script>
+    
+    <script>
+        // Theme toggling functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or default to system preference
+        const getCurrentTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        
+        // Apply the current theme
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateToggleButton(theme);
+        };
+        
+        // Update the toggle button appearance
+        const updateToggleButton = (theme) => {
+            themeToggle.classList.toggle('dark-mode', theme === 'dark');
+        };
+        
+        // Toggle between light and dark themes
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // Set initial theme on page load
+        applyTheme(getCurrentTheme());
+    </script>
 </body>
 </html>

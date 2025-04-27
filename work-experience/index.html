@@ -3,41 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Experience</title>
+    <title>Work Experience | Eric Gulotty</title>
     <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        /* Enhanced timeline item styles with better hover effects */
+        .timeline-item {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 32px; /* Increased padding */
+            background-color: var(--card-bg);
+            border-radius: 16px; /* Increased border radius */
+            box-shadow: 0 6px 12px var(--shadow-color);
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px; /* Increased bottom margin */
+            border: 1px solid var(--border-color);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1.0); /* Smoother transition */
+            position: relative;
+            overflow: visible;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-10px); /* Increased upward movement */
+            box-shadow: 0 15px 30px var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+        
+        /* Make sure text remains visible on hover */
+        .timeline-item:hover .timeline-content p,
+        .timeline-item:hover .timeline-content h2,
+        .timeline-item:hover .timeline-content h3,
+        .timeline-item:hover .timeline-skills span,
+        .timeline-item:hover .read-more {
+            color: inherit; /* This ensures text keeps its original color */
+            opacity: 1; /* Ensures full visibility */
+        }
+        
+        /* Timeline container spacing */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 28px; /* Increased gap between items */
+            position: relative;
+            margin-top: 50px; /* Increased top margin */
+        }
+        
+        /* Logo styling with enhanced hover effect */
+        .timeline-logo {
+            flex-shrink: 0;
+            margin-right: 35px; /* Increased margin */
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-logo img {
+            width: 80px; /* Increased size */
+            height: 80px; /* Increased size */
+            border-radius: 14px; /* Increased border radius */
+            object-fit: contain;
+            padding: 12px; /* Increased padding */
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 8px var(--shadow-color);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: grayscale(20%);
+            transform-origin: center;
+            border: 1px solid var(--border-color); /* Added border */
+        }
+        
+        .timeline-item:hover .timeline-logo img {
+            transform: scale(1.1) rotate(5deg);
+            filter: grayscale(0%);
+            box-shadow: 0 8px 16px var(--shadow-hover);
+            border-color: var(--primary-color); /* Border color changes on hover */
+        }
+        
+        /* Explicitly set text colors for content */
+        .timeline-content p {
+            color: var(--text-color);
+            line-height: 1.6; /* Improved line height */
+        }
+        
+        .timeline-content h2 {
+            color: var(--text-color);
+            font-size: 1.5rem; /* Increased font size */
+            margin-top: 0; /* Remove top margin */
+            letter-spacing: -0.01em; /* Slight letter spacing adjustment */
+        }
+        
+        .timeline-content h3 {
+            color: var(--text-muted);
+            font-size: 1.15rem; /* Increased font size */
+            letter-spacing: -0.01em; /* Slight letter spacing adjustment */
+        }
+
+        /* Style for bullet points in expanded descriptions */
+        .full-description {
+            padding-left: 5px; /* Add slight padding */
+            margin-top: 20px; /* Space above the full description */
+        }
+        
+        .full-description p {
+            margin-bottom: 15px; /* Space between paragraphs */
+            position: relative;
+            padding-left: 5px; /* Padding for bullet points */
+        }
+        
+        /* Short description styling */
+        .short-description {
+            font-size: 1.05em; /* Slightly larger */
+            line-height: 1.7; /* Better line height */
+            margin-bottom: 10px; /* Bottom margin */
+        }
+        
+        /* Skill tags with hover effects */
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Increased gap */
+            margin: 12px 0 18px; /* Adjusted margins */
+        }
+        
+        .timeline-skills span {
+            background-color: var(--accent-light);
+            color: var(--primary-color);
+            padding: 6px 14px; /* Increased padding */
+            border-radius: 25px; /* More rounded */
+            font-size: 0.9em; /* Slightly larger */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: default;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+        
+        .timeline-skills span:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+        }
+        
+        /* Read more button hover effect */
+        .read-more {
+            background-color: var(--accent-light);
+            color: var(--primary-color);
+            border: none;
+            padding: 8px 16px; /* Increased padding */
+            cursor: pointer;
+            border-radius: 8px; /* Increased border radius */
+            margin-top: 18px; /* Increased top margin */
+            transition: all 0.3s ease;
+            font-weight: 600; /* Bolder */
+            font-size: 0.9em; /* Slightly larger */
+            display: inline-block;
+            clear: both;
+        }
+        
+        .read-more:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* Enhanced shadow */
+        }
+        
+        /* Timeline date hover effect */
+        .timeline-date {
+            font-size: 0.95em; /* Slightly larger */
+            font-weight: 600; /* Bolder */
+            color: var(--text-muted) !important; /* Use !important to override any other styles */
+            display: inline-block;
+            margin-left: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            background-color: transparent !important;
+            padding: 5px 0; /* Added padding */
+            margin-top: 10px; /* Added top margin */
+        }
+        
+        .timeline-item:hover .timeline-date {
+            color: var(--primary-color) !important;
+            transform: translateX(5px);
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* Hidden content handling */
+        .hidden {
+            display: none;
+        }
+        
+        /* Fix AOS animation issues */
+        [data-aos] {
+            pointer-events: auto !important;
+        }
+        
+        [data-aos].animated {
+            pointer-events: auto !important;
+        }
+        
+        /* Timeline section padding */
+        .work-experience {
+            padding: 0;
+            overflow: visible;
+        }
+        
+        /* Content styling */
+        .timeline-content {
+            flex-grow: 1;
+        }
+        
+        .timeline-content h2 {
+            margin-bottom: 2px; /* Reduced margin between title and location */
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content h3 {
+            color: var(--text-muted);
+            font-size: 1.1em;
+            margin-bottom: 8px; /* Reduced margin between location and skills */
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content .short-description {
+            margin-top: 18px; /* Added space between skills and content */
+        }
+        
+        .timeline-item:hover .timeline-content h2 {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-logo {
+                margin: 0 0 20px 0;
+                align-self: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <ul class="nav-links">
                 <li><a href="/">About Me</a></li>
-                <li><a href="/work-experience/">Work Experience</a></li>
+                <li><a href="/work-experience/" class="active">Work Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </nav>
     </header>
 
     <main>
-        <h1>Work Experience</h1>
-        <div class="card-container">
-            <div class="card">
-                <h2>Transit Data Intern - MBTA</h2>
-                <p>I worked at MBTA as a Transit Data Intern, where I contributed to data analysis projects aimed at improving public transit systems.</p>
-                <a href="https://www.linkedin.com/in/ericgulottyjr" class="link">LinkedIn</a>
-            </div>
+        <section class="work-experience">
+            <h1 data-text="Professional Experience">Professional Experience</h1>
+            <p class="section-intro">My career journey in data science thus far, from internships to on-campus positions.</p>
+            
+            <div class="timeline">
+                <!-- First Work Experience Entry -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+                    <div class="timeline-logo">
+                        <img src="/images/MITRE Logo.png" alt="MITRE Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Data Science Intern</h2>
+                        <h3>MITRE</h3>
+                        <div class="timeline-skills">
+                            <span>Python</span>
+                            <span>Neural Networks</span>
+                            <span>Linear Optimization</span>
+                            <span>GAMS</span>
+                        </div>
+                        <p class="short-description">Designed multi-task CNN architectures, developed user interfaces for simulation models, and enhanced optimization constraints for large-scale modeling systems.</p>
+                        <div class="full-description hidden">
+                            <p>• Designed and prototyped a multi-task convolutional neural network (CNN) architecture, building a robust data pipeline to train and integrate the CNN into large-scale linear optimization models, reduced solve time from over 10 to under 2 minutes through CNN-driven approximations of initial solve points.</p>
+                            <p>• Developed an intuitive user interface enabling users to generate and manage input files for distinct simulation models, seamlessly integrating them into a broader modeling ecosystem.</p>
+                            <p>• Enhanced model accuracy by extracting and translating technical documentation into actionable linear optimization constraints, utilizing Python for data preprocessing and GAMS for constraint formulation.</p>
+                        </div>
+                        <button class="read-more">Read More</button>
+                        <span class="timeline-date">May 2024 - August 2024</span>
+                    </div>
+                </div>
 
-            <div class="card">
-                <h2>Machine Learning Intern - MITRE</h2>
-                <p>During my internship at MITRE, I developed machine learning pipelines for hybrid linear programming models, focusing on optimization and prediction tasks.</p>
-                <a href="https://www.linkedin.com/in/ericgulottyjr" class="link">LinkedIn</a>
+                <!-- Second Work Experience Entry -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-logo">
+                        <img src="/images/MBTA.svg.png" alt="MBTA Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Transit Data Intern</h2>
+                        <h3>Massachusetts Bay Transportation Authority (MBTA)</h3>
+                        <div class="timeline-skills">
+                            <span>Tableau</span>
+                            <span>Python</span>
+                            <span>AWS S3</span>
+                            <span>Pandas</span>
+                            <span>PostgreSQL</span>
+                            <span>Exploratory Data Analysis</span>
+                        </div>
+                        <p class="short-description">Created monitoring dashboards for MBTA supervisors, developed tools for prediction data analysis, and built validation services for passenger information systems.</p>
+                        <div class="full-description hidden">
+                            <p>• Constructed a Tableau dashboard for supervisors to monitor on-station officials' activity at terminal stations through integrating data from the MBTA's digital train sheet application. Prototyped a feature which captured user behavior, allowing officials to compare themselves against peers.</p>
+                            <p>• Developed a Python script to batch-download historical prediction files from AWS S3 buckets for Exploratory Data Analysis of MBTA prediction data. Leveraged Matplotlib to visualize prediction accuracy and improve the reliability of information displayed at stations to help combat slow zones.</p>
+                            <p>• Created a service to validate message accuracy on Variable Message Signs (VMS) during the Sumner Tunnel closure, interfaced with MBTA's V3 API and vendor-side logs through Pandas and PostgreSQL.</p>
+                        </div>
+                        <button class="read-more">Read More</button>
+                        <span class="timeline-date">June 2023 - August 2023</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+                    <div class="timeline-logo">
+                        <img src="/images/Boston_University_seal.png" alt="BU seal">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Peer Tutor</h2>
+                        <h3>Faculty of Computing and Data Sciences - Boston University</h3>
+                        <div class="timeline-skills">
+                            <span>Python</span>
+                            <span>Rust</span>
+                            <span>Workshops</span>
+                            <span>Linear Algebra</span>
+                            <span>Applied Algorithms</span>
+                            <span>Applied Statistics</span>
+                        </div>
+                        <p class="short-description">Provided 1-on-1 support for students within the computing and data science department.</p>
+                        <div class="full-description hidden">
+                            <p>Lead programming workshops for Python and Rust, aiding students in understanding how to write efficient and effective code and providing guidance on best practices for programming in a data science context.</p>
+                        </div>
+                        <button class="read-more">Read More</button>
+                        <span class="timeline-date">October 2022 - Present</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-logo">
+                        <img src="/images/KTP Logo.png" alt="KTP Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Director of Philanthropy</h2>
+                        <h3>Kappa Theta Pi - Lambda Chapter</h3>
+                        <div class="timeline-skills">
+                            <span>Leadership</span>
+                            <span>Event Planning</span>
+                            <span>Community Outreach</span>
+                        </div>
+                        <p class="short-description">Organized various philanthropic activities including food/clothing drives, fundraising events, and established connections with local charitable organizations.</p>
+                        <span class="timeline-date">September 2023 - July 2024</span>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
+        <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            mirror: false,
+            offset: 40,
+            delay: 0
+        });
+        
+        // Re-enable pointer events after animations complete
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelectorAll('[data-aos]').forEach(function(el) {
+                    el.style.pointerEvents = 'auto';
+                });
+            }, 1000);
+        });
+    </script>
+
+    <script>
+        // Select all Read More buttons
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', () => {
+                // Find the full description related to the clicked button
+                const fullDescription = button.previousElementSibling;
+                fullDescription.classList.toggle('hidden'); // Toggle hidden class
+    
+                // Change button text
+                button.textContent = fullDescription.classList.contains('hidden') ? 'Read More' : 'Read Less';
+            });
+        });
+
+        // Function to check content length and show/hide read more buttons
+        function handleReadMoreButtons() {
+            document.querySelectorAll('.timeline-content').forEach(content => {
+                const shortDesc = content.querySelector('.short-description');
+                const fullDesc = content.querySelector('.full-description');
+                const readMoreBtn = content.querySelector('.read-more');
+                
+                // If there's no full description or it's empty, hide the read more button
+                if (!fullDesc || fullDesc.textContent.trim().length === 0) {
+                    if (readMoreBtn) readMoreBtn.style.display = 'none';
+                }
+            });
+        }
+
+        // Run when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            handleReadMoreButtons();
+            
+            // Add data-text attribute to all h1 elements for 3D effect
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(h1 => {
+                if (!h1.hasAttribute('data-text')) {
+                    h1.setAttribute('data-text', h1.textContent);
+                }
+            });
+        });
+    </script>
+    
+    <script>
+        // Theme toggling functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or default to system preference
+        const getCurrentTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        
+        // Apply the current theme
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateToggleButton(theme);
+        };
+        
+        // Update the toggle button appearance
+        const updateToggleButton = (theme) => {
+            themeToggle.classList.toggle('dark-mode', theme === 'dark');
+        };
+        
+        // Toggle between light and dark themes
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // Set initial theme on page load
+        applyTheme(getCurrentTheme());
+    </script>
 </body>
 </html>

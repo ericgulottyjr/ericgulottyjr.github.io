@@ -3,27 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Eric Gulotty | Data Scientist</title>
     <link rel="stylesheet" href="/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
             <ul class="nav-links">
-                <li><a href="/">About Me</a></li>
+                <li><a href="/" class="active">About Me</a></li>
                 <li><a href="/work-experience/">Work Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
         </nav>
     </header>
     <main>
-        <h1>About Me</h1>
-        <p>Welcome to my personal website! I'm Eric Gulotty, an aspiring Data Scientist pursuing a Dual Degree in Data Science and Economics.</p>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Eric Gulotty Jr.</h1>
+                <h2>Aspiring Data Scientist & Economist</h2>
+                <p>Welcome to my portfolio! I'm a graduating senior at Boston University pursuing a Dual Degree in Data Science and Economics with a passion for turning data into actionable insights.</p>
+                <div class="hero-buttons">
+                    <a href="/work-experience/" class="hero-button">View Experience</a>
+                    <a href="/contact/" class="hero-button secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-skills">
+                <h3>Technical Skills</h3>
+                <div class="skills-container">
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-item"><i class="fas fa-chart-bar"></i> Data Visualization</div>
+                    <div class="skill-item"><i class="fas fa-brain"></i> Machine Learning</div>
+                    <div class="skill-item"><i class="fas fa-chart-line"></i> Statistical Analysis</div>
+                    <div class="skill-item"><i class="fas fa-cloud"></i> Cloud Computing</div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
+        <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Theme toggling functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or default to system preference
+        const getCurrentTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        
+        // Apply the current theme
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            updateToggleButton(theme);
+        };
+        
+        // Update the toggle button appearance
+        const updateToggleButton = (theme) => {
+            themeToggle.classList.toggle('dark-mode', theme === 'dark');
+        };
+        
+        // Toggle between light and dark themes
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = getCurrentTheme();
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // Set initial theme on page load
+        applyTheme(getCurrentTheme());
+    </script>
 </body>
 </html>
