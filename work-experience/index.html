@@ -249,12 +249,27 @@
                 margin: 0 0 20px 0;
                 align-self: center;
             }
+            
+            /* Center the timeline date on mobile */
+            .timeline-date {
+                display: block;
+                text-align: center;
+                margin: 15px auto 0;
+            }
+            
+            /* Adjust hover effect for centered dates on mobile */
+            .timeline-item:hover .timeline-date {
+                transform: translateY(-3px);
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/" class="active">Work Experience</a></li>
@@ -471,6 +486,30 @@
         
         // Set initial theme on page load
         applyTheme(getCurrentTheme());
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 
+                    navLinks.classList.contains('active') ? 'true' : 'false');
+            });
+        }
+
+        // Close mobile menu when clicking a link or outside
+        document.addEventListener('click', (e) => {
+            const isNavLink = e.target.closest('.nav-links a');
+            if (navLinks.classList.contains('active') && 
+                (isNavLink || (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)))) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     </script>
+    <script src="../scripts.js"></script>
 </body>
 </html>
