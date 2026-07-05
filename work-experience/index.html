@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work Experience | Eric Gulotty</title>
+    <title>Work Experience | Eric Gulotty Jr.</title>
     <script>
         (function () {
             var stored = localStorage.getItem('theme');
@@ -54,6 +54,8 @@
                 <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/" class="active">Work Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -66,11 +68,28 @@
     <main>
         <section class="work-experience">
             <h1 data-text="Professional Experience">Professional Experience</h1>
-            <p class="section-intro">My career journey in data science thus far, from internships to on-campus positions.</p>
+            <p class="section-intro">Industry experience applying data science, AI, and optimization across federal research and public transit.</p>
             
             <div class="timeline">
-                <!-- First Work Experience Entry -->
                 <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+                    <div class="timeline-logo">
+                        <img src="/images/MITRE Logo.png" alt="MITRE Logo">
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Intermediate Data Scientist</h2>
+                        <h3>MITRE</h3>
+                        <p class="short-description">Building AI-enabled analysis tools, forecasting models for economic policy scenarios, and modernizing supply-chain optimization workflows.</p>
+                        <div class="full-description hidden">
+                            <p>• Led development of an AI-enabled analysis dashboard that combines internal LLMs with simulation models to accelerate systems acquisition timelines, serving as a pilot for integrating AI capabilities into acquisition workflows across diverse environments.</p>
+                            <p>• Contributed to a firm-level forecasting model estimating economic impacts of proposed policy scenarios, integrating diverse datasets to support rapid scenario analysis for relevant stakeholders. Redesigned a critical workflow, reducing end-to-end runtime from days to minutes.</p>
+                            <p>• Spearheaded migration of optimization inputs from legacy Excel to a SQLite backend by architecting a custom Streamlit interface, supporting modernization of resilient supply and logistics planning in complex operating environments.</p>
+                        </div>
+                        <button class="read-more">Read More</button>
+                        <span class="timeline-date">June 2026 - Present</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
                     <div class="timeline-logo">
                         <img src="/images/MITRE Logo.png" alt="MITRE Logo">
                     </div>
@@ -94,8 +113,7 @@
                     </div>
                 </div>
 
-                <!-- Second Work Experience Entry -->
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
                     <div class="timeline-logo">
                         <img src="/images/MBTA.svg.png" alt="MBTA Logo">
                     </div>
@@ -120,53 +138,12 @@
                         <span class="timeline-date">June 2023 - August 2023</span>
                     </div>
                 </div>
-
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
-                    <div class="timeline-logo">
-                        <img src="/images/Boston_University_seal.png" alt="BU seal">
-                    </div>
-                    <div class="timeline-content">
-                        <h2>Peer Tutor</h2>
-                        <h3>Faculty of Computing and Data Sciences - Boston University</h3>
-                        <div class="timeline-skills">
-                            <span>Python</span>
-                            <span>Rust</span>
-                            <span>Workshops</span>
-                            <span>Linear Algebra</span>
-                            <span>Applied Algorithms</span>
-                            <span>Applied Statistics</span>
-                        </div>
-                        <p class="short-description">Provided 1-on-1 support for students within the computing and data science department.</p>
-                        <div class="full-description hidden">
-                            <p>Lead programming workshops for Python and Rust, aiding students in understanding how to write efficient and effective code and providing guidance on best practices for programming in a data science context.</p>
-                        </div>
-                        <button class="read-more">Read More</button>
-                        <span class="timeline-date">October 2022 - Present</span>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-logo">
-                        <img src="/images/KTP Logo.png" alt="KTP Logo">
-                    </div>
-                    <div class="timeline-content">
-                        <h2>Director of Philanthropy</h2>
-                        <h3>Kappa Theta Pi - Lambda Chapter</h3>
-                        <div class="timeline-skills">
-                            <span>Leadership</span>
-                            <span>Event Planning</span>
-                            <span>Community Outreach</span>
-                        </div>
-                        <p class="short-description">Organized various philanthropic activities including food/clothing drives, fundraising events, and established connections with local charitable organizations.</p>
-                        <span class="timeline-date">September 2023 - July 2024</span>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
+        <p class="copyright-notice"></p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>

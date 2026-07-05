@@ -71,13 +71,64 @@ function initFooter() {
     // Footer snaps to the viewport bottom via body flex + footer { margin-top: auto }.
 }
 
+function initCopyright() {
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.copyright-notice').forEach((element) => {
+        element.textContent = `\u00A9 ${year} Eric Gulotty Jr. All rights reserved.`;
+    });
+}
+
+function initHeroRoleTypewriter() {
+    const roleElement = document.querySelector('.hero-role-text');
+    const cursorElement = document.querySelector('.hero-role-cursor');
+
+    if (!roleElement || !cursorElement) {
+        return;
+    }
+
+    const roles = ['Data Scientist', 'Artificial Intelligence Engineer', 'Economist'];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 80;
+    const deletingSpeed = 45;
+    const pauseDelay = 2800;
+
+    function tick() {
+        const currentRole = roles[roleIndex];
+        let delay = isDeleting ? deletingSpeed : typingSpeed;
+
+        if (isDeleting) {
+            charIndex -= 1;
+            roleElement.textContent = currentRole.substring(0, charIndex);
+        } else {
+            charIndex += 1;
+            roleElement.textContent = currentRole.substring(0, charIndex);
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            delay = pauseDelay;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            delay = 400;
+        }
+
+        setTimeout(tick, delay);
+    }
+
+    setTimeout(tick, 600);
+}
+
 function initTypewriter() {
+    const container = document.querySelector('.typewriter-container');
     const prefixElement = document.querySelector('.typewriter-prefix');
     const staticElement = document.querySelector('.typewriter-static');
     const suffixElement = document.querySelector('.typewriter-suffix');
     const cursorElement = document.querySelector('.typewriter-cursor');
 
-    if (!prefixElement || !staticElement || !suffixElement || !cursorElement) {
+    if (!container || !prefixElement || !staticElement || !suffixElement || !cursorElement) {
         return;
     }
 
@@ -233,8 +284,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initThemeToggle();
     initMobileMenu();
     initFooter();
+    initCopyright();
     initAOS();
     initReadMore();
     initH1DataText();
+    initHeroRoleTypewriter();
     initTypewriter();
 });

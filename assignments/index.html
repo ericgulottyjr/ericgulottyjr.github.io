@@ -46,11 +46,15 @@
 <body>
     <header>
         <nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/">Work Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
-                <li><a href="/assignments/" class="active">Assignments</a></li>
+                <li><a href="/education/">Education</a></li>
+                <li><a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -67,7 +71,7 @@
             <div class="card-container">
                 <div class="card">
                     <h2>Assignment 0: Dummy Assignment</h2>
-                    <p>Dummy assignment to test personal website functionality. The repo conatins a single Python file that prints the sum of two user inputted numbers to the command line.</p>
+                    <p>Dummy assignment to test personal website functionality. The repo contains a single Python file that prints the sum of two user inputted numbers to the command line.</p>
                     <a href="https://github.com/ericgulottyjr/egulotty-assignment-0" class="link">Github Link</a>
                 </div>
             </div>
@@ -162,15 +166,15 @@
 
             <div class="card-container">
                 <div class="card">
-                    <h2>Assignment 10: Image Search</h2>
-                    <p> Extra credit assignment, implemented a random forest classifer to label a sythetic dataset of credit card transactions as either real or fradulent.
+                    <h2>Extra Credit: Random Forest Classification</h2>
+                    <p>Extra credit assignment: implemented a random forest classifier to label a synthetic dataset of credit card transactions as either real or fraudulent.</p>
                     <a href="https://github.com/ericgulottyjr/cs506-extra-credit" class="link">Github Link</a>
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
+        <p class="copyright-notice"></p>
     </footer>
     
     <script src="../scripts.js"></script>

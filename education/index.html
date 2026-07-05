@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eric Gulotty Jr. | Portfolio</title>
+    <title>Education | Eric Gulotty Jr.</title>
     <script>
         (function () {
             var stored = localStorage.getItem('theme');
@@ -37,7 +37,7 @@
             });
         })();
     </script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,600;0,9..40,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -50,10 +50,10 @@
                 <i class="fas fa-bars"></i>
             </button>
             <ul class="nav-links">
-                <li><a href="/" class="active">About Me</a></li>
+                <li><a href="/">About Me</a></li>
                 <li><a href="/work-experience/">Work Experience</a></li>
                 <li><a href="/projects/">Projects</a></li>
-                <li><a href="/education/">Education</a></li>
+                <li><a href="/education/" class="active">Education</a></li>
                 <li><a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="/contact/">Contact</a></li>
             </ul>
@@ -63,36 +63,31 @@
             </button>
         </nav>
     </header>
+
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Eric Gulotty Jr.</h1>
-                <h2 class="hero-subtitle">
-                    <span class="hero-role-text"></span><span class="hero-role-cursor" aria-hidden="true">|</span><span class="hero-role-at"></span>
-                </h2>
-                <p>Welcome to my portfolio! I'm a full-time Data Scientist at MITRE, passionate about leveraging data and machine learning to increase efficiency and deliver outsized impact.</p>
-                <div class="hero-buttons">
-                    <a href="/work-experience/" class="hero-button">View Experience</a>
-                    <a href="/contact/" class="hero-button secondary">Contact Me</a>
+        <section class="education">
+            <h1>Education</h1>
+            <p class="section-intro">Academic background in data science and economics from Boston University.</p>
+
+            <div class="education-degrees">
+                <div class="education-degree">
+                    <h2>Boston University</h2>
+                    <ul class="degree-list">
+                        <li>B.S. Data Science</li>
+                        <li>B.A. Economics</li>
+                    </ul>
                 </div>
             </div>
-            <div class="hero-skills">
-                <h3>Technical Skills</h3>
-                <div class="skills-container">
-                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
-                    <div class="skill-item"><i class="fas fa-robot"></i> Artificial Intelligence</div>
-                    <div class="skill-item"><i class="fas fa-brain"></i> Machine Learning</div>
-                    <div class="skill-item"><i class="fas fa-gears"></i> Data Engineering</div>
-                    <div class="skill-item"><i class="fas fa-cloud"></i> Cloud Computing</div>
-                </div>
-            </div>
+
+            <h3 class="education-section-title">Relevant Coursework &amp; Skills</h3>
+            <p class="education-placeholder">Coursework highlights and applied skills will be added in an upcoming update.</p>
         </section>
     </main>
+
     <footer>
         <p class="copyright-notice"></p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 </html>
