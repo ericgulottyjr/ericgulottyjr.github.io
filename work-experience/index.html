@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work Experience | Eric Gulotty</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- AOS Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <style>
         /* Enhanced timeline item styles with better hover effects */
         .timeline-item {
@@ -389,127 +390,7 @@
         <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
 
-    <!-- AOS Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            mirror: false,
-            offset: 40,
-            delay: 0
-        });
-        
-        // Re-enable pointer events after animations complete
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.querySelectorAll('[data-aos]').forEach(function(el) {
-                    el.style.pointerEvents = 'auto';
-                });
-            }, 1000);
-        });
-    </script>
-
-    <script>
-        // Select all Read More buttons
-        document.querySelectorAll('.read-more').forEach(button => {
-            button.addEventListener('click', () => {
-                // Find the full description related to the clicked button
-                const fullDescription = button.previousElementSibling;
-                fullDescription.classList.toggle('hidden'); // Toggle hidden class
-    
-                // Change button text
-                button.textContent = fullDescription.classList.contains('hidden') ? 'Read More' : 'Read Less';
-            });
-        });
-
-        // Function to check content length and show/hide read more buttons
-        function handleReadMoreButtons() {
-            document.querySelectorAll('.timeline-content').forEach(content => {
-                const shortDesc = content.querySelector('.short-description');
-                const fullDesc = content.querySelector('.full-description');
-                const readMoreBtn = content.querySelector('.read-more');
-                
-                // If there's no full description or it's empty, hide the read more button
-                if (!fullDesc || fullDesc.textContent.trim().length === 0) {
-                    if (readMoreBtn) readMoreBtn.style.display = 'none';
-                }
-            });
-        }
-
-        // Run when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            handleReadMoreButtons();
-            
-            // Add data-text attribute to all h1 elements for 3D effect
-            const h1Elements = document.querySelectorAll('h1');
-            h1Elements.forEach(h1 => {
-                if (!h1.hasAttribute('data-text')) {
-                    h1.setAttribute('data-text', h1.textContent);
-                }
-            });
-        });
-    </script>
-    
-    <script>
-        // Theme toggling functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Check for saved theme preference or default to system preference
-        const getCurrentTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        
-        // Apply the current theme
-        const applyTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            updateToggleButton(theme);
-        };
-        
-        // Update the toggle button appearance
-        const updateToggleButton = (theme) => {
-            themeToggle.classList.toggle('dark-mode', theme === 'dark');
-        };
-        
-        // Toggle between light and dark themes
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = getCurrentTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-        });
-        
-        // Set initial theme on page load
-        applyTheme(getCurrentTheme());
-
-        // Mobile menu functionality
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 
-                    navLinks.classList.contains('active') ? 'true' : 'false');
-            });
-        }
-
-        // Close mobile menu when clicking a link or outside
-        document.addEventListener('click', (e) => {
-            const isNavLink = e.target.closest('.nav-links a');
-            if (navLinks.classList.contains('active') && 
-                (isNavLink || (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)))) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    </script>
-    <script src="../scripts.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 </html>

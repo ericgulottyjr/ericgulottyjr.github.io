@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Eric Gulotty</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
         .typewriter-container {
             display: flex;
@@ -155,156 +157,6 @@
         <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
     
-    <script>
-        // Theme toggling functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Check for saved theme preference or default to system preference
-        const getCurrentTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        
-        // Apply the current theme
-        const applyTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            updateToggleButton(theme);
-        };
-        
-        // Update the toggle button appearance
-        const updateToggleButton = (theme) => {
-            themeToggle.classList.toggle('dark-mode', theme === 'dark');
-        };
-        
-        // Toggle between light and dark themes
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = getCurrentTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-        });
-        
-        // Set initial theme on page load
-        applyTheme(getCurrentTheme());
-        
-        // Mobile menu functionality
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 
-                    navLinks.classList.contains('active') ? 'true' : 'false');
-            });
-        }
-
-        // Close mobile menu when clicking a link or outside
-        document.addEventListener('click', (e) => {
-            const isNavLink = e.target.closest('.nav-links a');
-            if (navLinks.classList.contains('active') && 
-                (isNavLink || (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)))) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // Typewriter effect
-        const prefixElement = document.querySelector('.typewriter-prefix');
-        const suffixElement = document.querySelector('.typewriter-suffix');
-        
-        const contactPlatforms = [
-            { prefix: '', suffix: '@gmail.com' },
-            { prefix: 'linkedin.com/in/', suffix: '' },
-            { prefix: 'github.com/', suffix: '' },
-            { prefix: '', suffix: '.github.io' }
-        ];
-        
-        let platformIndex = 0;
-        let prefixIndex = 0;
-        let suffixIndex = 0;
-        let isDeleting = false;
-        let typingDelay = 100;
-        let deletingDelay = 50;
-        let newTextDelay = 2000; // Delay before starting to delete text
-        
-        function updateCursorClasses() {
-            // Function emptied - no cursor functionality
-        }
-        
-        function typeEffect() {
-            const currentPlatform = contactPlatforms[platformIndex];
-            const currentPrefix = currentPlatform.prefix;
-            const currentSuffix = currentPlatform.suffix;
-            
-            if (isDeleting) {
-                // Deleting text
-                if (currentPrefix) {
-                    prefixElement.textContent = currentPrefix.substring(0, prefixIndex - 1);
-                    prefixIndex--;
-                }
-                
-                if (currentSuffix) {
-                    suffixElement.textContent = currentSuffix.substring(0, suffixIndex - 1);
-                    suffixIndex--;
-                }
-                
-                typingDelay = deletingDelay;
-            } else {
-                // Typing text
-                if (currentPrefix && prefixIndex < currentPrefix.length) {
-                    prefixElement.textContent = currentPrefix.substring(0, prefixIndex + 1);
-                    prefixIndex++;
-                }
-                
-                if (currentSuffix && suffixIndex < currentSuffix.length) {
-                    suffixElement.textContent = currentSuffix.substring(0, suffixIndex + 1);
-                    suffixIndex++;
-                }
-                
-                typingDelay = 100;
-            }
-            
-            // Update cursor visibility
-            updateCursorClasses();
-            
-            // If we've typed all characters of current platform
-            const prefixComplete = !currentPrefix || prefixIndex === currentPrefix.length;
-            const suffixComplete = !currentSuffix || suffixIndex === currentSuffix.length;
-            
-            if (!isDeleting && prefixComplete && suffixComplete) {
-                isDeleting = false;
-                typingDelay = newTextDelay; // Pause before deleting
-                setTimeout(() => {
-                    isDeleting = true;
-                }, newTextDelay);
-            }
-            
-            // If we've deleted all characters
-            const prefixDeleted = !currentPrefix || prefixIndex === 0;
-            const suffixDeleted = !currentSuffix || suffixIndex === 0;
-            
-            if (isDeleting && prefixDeleted && suffixDeleted) {
-                isDeleting = false;
-                platformIndex = (platformIndex + 1) % contactPlatforms.length;
-                
-                // Reset indices for the next platform
-                prefixIndex = 0;
-                suffixIndex = 0;
-            }
-            
-            setTimeout(typeEffect, typingDelay);
-        }
-        
-        // Start typewriter effect when page loads
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(typeEffect, 1000); // Start after a 1 second delay
-        });
-    </script>
-    <script src="../scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 </html>

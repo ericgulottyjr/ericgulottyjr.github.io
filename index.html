@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eric Gulotty | Data Scientist</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
     <header>
@@ -44,7 +46,7 @@
                     <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
                     <div class="skill-item"><i class="fas fa-robot"></i> Artificial Intelligence</div>
                     <div class="skill-item"><i class="fas fa-brain"></i> Machine Learning</div>
-                    <div class="skill-item"><i class="fas fa-cogs"></i> Data Engineering</div>
+                    <div class="skill-item"><i class="fas fa-gears"></i> Data Engineering</div>
                     <div class="skill-item"><i class="fas fa-cloud"></i> Cloud Computing</div>
                 </div>
             </div>
@@ -54,64 +56,6 @@
         <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Theme toggling functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Check for saved theme preference or default to system preference
-        const getCurrentTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        
-        // Apply the current theme
-        const applyTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            updateToggleButton(theme);
-        };
-        
-        // Update the toggle button appearance
-        const updateToggleButton = (theme) => {
-            themeToggle.classList.toggle('dark-mode', theme === 'dark');
-        };
-        
-        // Toggle between light and dark themes
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = getCurrentTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-        });
-        
-        // Set initial theme on page load
-        applyTheme(getCurrentTheme());
-
-        // Mobile menu functionality
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 
-                    navLinks.classList.contains('active') ? 'true' : 'false');
-            });
-        }
-
-        // Close mobile menu when clicking a link or outside
-        document.addEventListener('click', (e) => {
-            const isNavLink = e.target.closest('.nav-links a');
-            if (navLinks.classList.contains('active') && 
-                (isNavLink || (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)))) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    </script>
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 </html>

@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Eric Gulotty</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <!-- AOS Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <style>
         /* Reset problematic CSS from the main stylesheet */
         .project-card {
@@ -218,7 +219,7 @@
                             <p>Developed a machine learning model to predict Airbnb rental prices in NYC using a dataset of 48,000+ listings. Implemented feature engineering, data preprocessing, and model selection, achieving 64% variance explanation with XGBoost. Generated actionable insights on key price determinants like room type, location, and occupancy rate.</p>
                             <div class="card-actions">
                                 <a href="https://github.com/ericgulottyjr/NYC-Airbnb-Pricing-Prediction/tree/main" class="link" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                                <a href="https://github.com/ericgulottyjr/NYC-Airbnb-Pricing-Prediction/blob/main/README.md" class="link secondary" target="_blank"><i class="fas fa-file-alt"></i> Report</a>
+                                <a href="https://github.com/ericgulottyjr/NYC-Airbnb-Pricing-Prediction/blob/main/README.md" class="link secondary" target="_blank"><i class="fas fa-file-lines"></i> Report</a>
                             </div>
                         </div>
                     </div>
@@ -240,8 +241,8 @@
                             <h2>MBTA System Analysis</h2>
                             <p>Developed a comprehensive data analytics system to identify and address bottlenecks in Boston's transit system. Implemented a cloud-based architecture on MS Azure that integrates real-time MBTA operational data with weather information to predict headway and dwell times. Used Gradient Boosted Trees to achieve up to 77% prediction accuracy on both headway and dwell times, revealing significant correlations between weather conditions and transit delays.</p>
                             <div class="card-actions">
-                                <a href="/assets/mbta/Final-Report.pdf" class="link" target="_blank"><i class="fas fa-file-alt"></i> View Findings</a>
-                                <a href="/assets/mbta/data-architecture.png" class="link secondary" target="_blank"><i class="fas fa-project-diagram"></i> Data Architecture</a>
+                                <a href="/assets/mbta/Final-Report.pdf" class="link" target="_blank"><i class="fas fa-file-lines"></i> View Findings</a>
+                                <a href="/assets/mbta/data-architecture.png" class="link secondary" target="_blank"><i class="fas fa-diagram-project"></i> Data Architecture</a>
                             </div>
                         </div>
                     </div>
@@ -262,7 +263,7 @@
                             <p>Analyzed MLB player data to determine the ideal height and weight for successful players. Used PCA and K-means clustering to identify player types and linear regression to quantify the relationship between performance metrics (Wins Above Replacement, Runs Created) and player salaries. Attempted to find the height and weight that maximizes the player's average WAR value.</p>
                             <div class="card-actions">
                                 <a href="https://github.com/ericgulottyjr/mlb-player-analysis/blob/main/MLB%20Player%20Analysis.ipynb" class="link" target="_blank"><i class="fas fa-laptop-code"></i> View Notebook</a>
-                                <a href="https://github.com/ericgulottyjr/mlb-player-analysis/blob/main/README.md" class="link secondary" target="_blank"><i class="fas fa-file-alt"></i> Report</a>
+                                <a href="https://github.com/ericgulottyjr/mlb-player-analysis/blob/main/README.md" class="link secondary" target="_blank"><i class="fas fa-file-lines"></i> Report</a>
                             </div>
                         </div>
                     </div>
@@ -275,86 +276,7 @@
         <p>&copy; 2025 Eric Gulotty. All rights reserved.</p>
     </footer>
     
-    <!-- AOS Script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-out',
-            once: true,
-            mirror: false,
-            offset: 40,
-            delay: 0
-        });
-        
-        // Re-enable pointer events after animations complete
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.querySelectorAll('[data-aos]').forEach(function(el) {
-                    el.style.pointerEvents = 'auto';
-                });
-            }, 1000);
-        });
-    </script>
-    
-    <script>
-        // Theme toggling functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // Check for saved theme preference or default to system preference
-        const getCurrentTheme = () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                return savedTheme;
-            }
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        
-        // Apply the current theme
-        const applyTheme = (theme) => {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            updateToggleButton(theme);
-        };
-        
-        // Update the toggle button appearance
-        const updateToggleButton = (theme) => {
-            themeToggle.classList.toggle('dark-mode', theme === 'dark');
-        };
-        
-        // Toggle between light and dark themes
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = getCurrentTheme();
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-        });
-        
-        // Set initial theme on page load
-        applyTheme(getCurrentTheme());
-
-        // Mobile menu functionality
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 
-                    navLinks.classList.contains('active') ? 'true' : 'false');
-            });
-        }
-
-        // Close mobile menu when clicking a link or outside
-        document.addEventListener('click', (e) => {
-            const isNavLink = e.target.closest('.nav-links a');
-            if (navLinks.classList.contains('active') && 
-                (isNavLink || (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)))) {
-                navLinks.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-    </script>
-    <script src="../scripts.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 </html>
