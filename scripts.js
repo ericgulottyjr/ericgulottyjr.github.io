@@ -1,8 +1,14 @@
 function getCurrentTheme() {
+    const attrTheme = document.documentElement.getAttribute('data-theme');
+    if (attrTheme === 'light' || attrTheme === 'dark') {
+        return attrTheme;
+    }
+
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
+    if (savedTheme === 'light' || savedTheme === 'dark') {
         return savedTheme;
     }
+
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
@@ -21,12 +27,13 @@ function updateToggleButton(theme) {
 
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
-    if (!themeToggle) {
+    if (!themeToggle || themeToggle.dataset.themeInit === 'true') {
         return;
     }
 
     applyTheme(getCurrentTheme());
 
+    themeToggle.dataset.themeInit = 'true';
     themeToggle.addEventListener('click', () => {
         const currentTheme = getCurrentTheme();
         applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
@@ -61,38 +68,115 @@ function initMobileMenu() {
 }
 
 function initFooter() {
-    const footer = document.querySelector('footer');
-    if (!footer) {
+    // Footer snaps to the viewport bottom via body flex + footer { margin-top: auto }.
+}
+
+function initTypewriter() {
+    const prefixElement = document.querySelector('.typewriter-prefix');
+    const staticElement = document.querySelector('.typewriter-static');
+    const suffixElement = document.querySelector('.typewriter-suffix');
+    const cursorElement = document.querySelector('.typewriter-cursor');
+
+    if (!prefixElement || !staticElement || !suffixElement || !cursorElement) {
         return;
     }
 
-    const body = document.body;
-    const html = document.documentElement;
+    const contactPlatforms = [
+        { prefix: '', suffix: '@gmail.com' },
+        { prefix: 'linkedin.com/in/', suffix: '' },
+        { prefix: 'github.com/', suffix: '' },
+        { prefix: '', suffix: '.github.io' }
+    ];
 
-    function adjustFooter() {
-        const documentHeight = Math.max(
-            body.scrollHeight, body.offsetHeight,
-            html.clientHeight, html.scrollHeight, html.offsetHeight
+    let platformIndex = 0;
+    let prefixIndex = 0;
+    let suffixIndex = 0;
+    let isDeleting = false;
+    let typingDelay = 100;
+    const deletingDelay = 50;
+    const newTextDelay = 2000;
+
+    function updateCursor() {
+        const platform = contactPlatforms[platformIndex];
+        const typingPrefix = platform.prefix && (
+            isDeleting ? prefixIndex > 0 : prefixIndex < platform.prefix.length
         );
-        const viewportHeight = window.innerHeight;
+        const typingSuffix = platform.suffix && (
+            isDeleting ? suffixIndex > 0 : suffixIndex < platform.suffix.length
+        );
 
-        if (documentHeight > viewportHeight + 150) {
-            footer.classList.remove('fixed');
-            footer.classList.add('dynamic');
+        if (typingPrefix) {
+            prefixElement.after(cursorElement);
+        } else if (typingSuffix) {
+            suffixElement.after(cursorElement);
+        } else if (platform.suffix && suffixIndex > 0) {
+            suffixElement.after(cursorElement);
+        } else if (platform.prefix && prefixIndex > 0) {
+            staticElement.after(cursorElement);
         } else {
-            footer.classList.remove('dynamic');
-            footer.classList.add('fixed');
+            staticElement.after(cursorElement);
         }
     }
 
-    adjustFooter();
-    window.addEventListener('resize', adjustFooter);
-    window.addEventListener('load', adjustFooter);
+    function typeEffect() {
+        const currentPlatform = contactPlatforms[platformIndex];
+        const currentPrefix = currentPlatform.prefix;
+        const currentSuffix = currentPlatform.suffix;
 
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        footer.classList.remove('fixed');
-        footer.classList.add('dynamic');
+        if (isDeleting) {
+            if (currentPrefix) {
+                prefixElement.textContent = currentPrefix.substring(0, prefixIndex - 1);
+                prefixIndex--;
+            }
+
+            if (currentSuffix) {
+                suffixElement.textContent = currentSuffix.substring(0, suffixIndex - 1);
+                suffixIndex--;
+            }
+
+            typingDelay = deletingDelay;
+        } else {
+            if (currentPrefix && prefixIndex < currentPrefix.length) {
+                prefixElement.textContent = currentPrefix.substring(0, prefixIndex + 1);
+                prefixIndex++;
+            }
+
+            if (currentSuffix && suffixIndex < currentSuffix.length) {
+                suffixElement.textContent = currentSuffix.substring(0, suffixIndex + 1);
+                suffixIndex++;
+            }
+
+            typingDelay = 100;
+        }
+
+        updateCursor();
+
+        const prefixComplete = !currentPrefix || prefixIndex === currentPrefix.length;
+        const suffixComplete = !currentSuffix || suffixIndex === currentSuffix.length;
+
+        if (!isDeleting && prefixComplete && suffixComplete) {
+            isDeleting = false;
+            typingDelay = newTextDelay;
+            setTimeout(() => {
+                isDeleting = true;
+            }, newTextDelay);
+        }
+
+        const prefixDeleted = !currentPrefix || prefixIndex === 0;
+        const suffixDeleted = !currentSuffix || suffixIndex === 0;
+
+        if (isDeleting && prefixDeleted && suffixDeleted) {
+            isDeleting = false;
+            platformIndex = (platformIndex + 1) % contactPlatforms.length;
+            prefixIndex = 0;
+            suffixIndex = 0;
+        }
+
+        setTimeout(typeEffect, typingDelay);
     }
+
+    updateCursor();
+    setTimeout(typeEffect, 1000);
 }
 
 function initAOS() {
@@ -143,87 +227,6 @@ function initH1DataText() {
             h1.setAttribute('data-text', h1.textContent);
         }
     });
-}
-
-function initTypewriter() {
-    const prefixElement = document.querySelector('.typewriter-prefix');
-    const suffixElement = document.querySelector('.typewriter-suffix');
-
-    if (!prefixElement || !suffixElement) {
-        return;
-    }
-
-    const contactPlatforms = [
-        { prefix: '', suffix: '@gmail.com' },
-        { prefix: 'linkedin.com/in/', suffix: '' },
-        { prefix: 'github.com/', suffix: '' },
-        { prefix: '', suffix: '.github.io' }
-    ];
-
-    let platformIndex = 0;
-    let prefixIndex = 0;
-    let suffixIndex = 0;
-    let isDeleting = false;
-    let typingDelay = 100;
-    const deletingDelay = 50;
-    const newTextDelay = 2000;
-
-    function typeEffect() {
-        const currentPlatform = contactPlatforms[platformIndex];
-        const currentPrefix = currentPlatform.prefix;
-        const currentSuffix = currentPlatform.suffix;
-
-        if (isDeleting) {
-            if (currentPrefix) {
-                prefixElement.textContent = currentPrefix.substring(0, prefixIndex - 1);
-                prefixIndex--;
-            }
-
-            if (currentSuffix) {
-                suffixElement.textContent = currentSuffix.substring(0, suffixIndex - 1);
-                suffixIndex--;
-            }
-
-            typingDelay = deletingDelay;
-        } else {
-            if (currentPrefix && prefixIndex < currentPrefix.length) {
-                prefixElement.textContent = currentPrefix.substring(0, prefixIndex + 1);
-                prefixIndex++;
-            }
-
-            if (currentSuffix && suffixIndex < currentSuffix.length) {
-                suffixElement.textContent = currentSuffix.substring(0, suffixIndex + 1);
-                suffixIndex++;
-            }
-
-            typingDelay = 100;
-        }
-
-        const prefixComplete = !currentPrefix || prefixIndex === currentPrefix.length;
-        const suffixComplete = !currentSuffix || suffixIndex === currentSuffix.length;
-
-        if (!isDeleting && prefixComplete && suffixComplete) {
-            isDeleting = false;
-            typingDelay = newTextDelay;
-            setTimeout(() => {
-                isDeleting = true;
-            }, newTextDelay);
-        }
-
-        const prefixDeleted = !currentPrefix || prefixIndex === 0;
-        const suffixDeleted = !currentSuffix || suffixIndex === 0;
-
-        if (isDeleting && prefixDeleted && suffixDeleted) {
-            isDeleting = false;
-            platformIndex = (platformIndex + 1) % contactPlatforms.length;
-            prefixIndex = 0;
-            suffixIndex = 0;
-        }
-
-        setTimeout(typeEffect, typingDelay);
-    }
-
-    setTimeout(typeEffect, 1000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

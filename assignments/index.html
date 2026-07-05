@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignments</title>
-    <link rel="stylesheet" href="/style.css">
+    <script>
+        (function () {
+            var stored = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = (stored === 'light' || stored === 'dark') ? stored : (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+
+            function applyTheme(next) {
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                var btn = document.getElementById('theme-toggle');
+                if (btn) {
+                    btn.classList.toggle('dark-mode', next === 'dark');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var btn = document.getElementById('theme-toggle');
+                if (!btn) {
+                    return;
+                }
+                btn.classList.toggle('dark-mode', document.documentElement.getAttribute('data-theme') === 'dark');
+                if (btn.dataset.themeInit === 'true') {
+                    return;
+                }
+                btn.dataset.themeInit = 'true';
+                btn.addEventListener('click', function () {
+                    var current = document.documentElement.getAttribute('data-theme');
+                    applyTheme(current === 'dark' ? 'light' : 'dark');
+                });
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,600;0,9..40,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
@@ -140,6 +173,6 @@
         <p>&copy; 2024 Eric Gulotty. All rights reserved.</p>
     </footer>
     
-    <script src="/scripts.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 </html>

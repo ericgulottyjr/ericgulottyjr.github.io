@@ -4,159 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Eric Gulotty</title>
-    <link rel="stylesheet" href="/style.css">
+    <script>
+        (function () {
+            var stored = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = (stored === 'light' || stored === 'dark') ? stored : (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+
+            function applyTheme(next) {
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                var btn = document.getElementById('theme-toggle');
+                if (btn) {
+                    btn.classList.toggle('dark-mode', next === 'dark');
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var btn = document.getElementById('theme-toggle');
+                if (!btn) {
+                    return;
+                }
+                btn.classList.toggle('dark-mode', document.documentElement.getAttribute('data-theme') === 'dark');
+                if (btn.dataset.themeInit === 'true') {
+                    return;
+                }
+                btn.dataset.themeInit = 'true';
+                btn.addEventListener('click', function () {
+                    var current = document.documentElement.getAttribute('data-theme');
+                    applyTheme(current === 'dark' ? 'light' : 'dark');
+                });
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,600;0,9..40,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-    <style>
-        /* Reset problematic CSS from the main stylesheet */
-        .project-card {
-            overflow: visible;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .project-card > div {
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-        
-        .project-card:hover > div {
-            border-color: var(--primary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px var(--shadow-hover);
-        }
-        
-        /* Fix card container styles for single column layout (mobile) */
-        .card-container {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin: 40px auto;
-            padding: 20px 10px;
-        }
-        
-        /* Adjusted card styles */
-        .card {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 30px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            margin: 0;
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        }
-        
-        /* Content styling */
-        .card-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .card-content p {
-            flex-grow: 1;
-            margin-bottom: 25px;
-        }
-        
-        .card-actions {
-            margin-top: auto;
-            display: flex;
-            gap: 12px;
-            justify-content: flex-start;
-        }
-        
-        /* Placeholder styling */
-        .project-placeholder {
-            background-color: var(--accent-light);
-            height: 120px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        
-        .project-card:hover .project-placeholder {
-            background-color: rgba(52, 152, 219, 0.15);
-            transform: scale(1.02);
-        }
-        
-        /* Fix section wrapper */
-        .work-experience {
-            padding: 0;
-            overflow: visible;
-        }
-        
-        /* Tech tags spacing */
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        
-        /* Tech tag hover effect */
-        .project-tech span {
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        
-        .project-tech span:hover {
-            transform: translateY(-3px);
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        /* Button hover effects */
-        .link {
-            transition: all 0.3s ease;
-        }
-        
-        .link:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Responsive layout */
-        @media (min-width: 768px) {
-            .card-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-                gap: 60px 30px; /* Increased vertical gap between rows */
-                margin-bottom: 60px; /* Add extra margin at the bottom */
-            }
-            
-            .project-card {
-                margin-bottom: 0;
-                margin-top: 0;
-                position: relative; /* Allow proper spacing */
-                height: 100%;
-            }
-            
-            /* Apply spacing for cards in a row */
-            .project-card:nth-child(n+3) {
-                padding-top: 20px; /* Extra padding for cards after the first row */
-            }
-        }
-        
-        /* Fix AOS animation issues */
-        [data-aos] {
-            pointer-events: auto !important;
-        }
-        
-        [data-aos].animated {
-            pointer-events: auto !important;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -277,6 +163,6 @@
     </footer>
     
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="/scripts.js"></script>
+    <script src="../scripts.js"></script>
 </body>
 </html>
