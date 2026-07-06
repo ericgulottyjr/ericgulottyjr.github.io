@@ -3,19 +3,20 @@
    ========================================================================== */
 
 :root {
-    --bg-color: #F8FAFC;
-    --surface-color: #FFFFFF;
-    --card-bg: #FFFFFF;
+    --bg-color: #F0EBE3;
+    --surface-color: #F5EFE6;
+    --card-bg: #EFE6D9;
     --text-color: #0F172A;
     --text-muted: #64748B;
     --primary-color: #0369A1;
     --primary-hover: #0284C7;
     --secondary-color: #0D9488;
-    --accent-light: #F0F9FF;
-    --border-color: #E2E8F0;
+    --accent-light: #EEF4F0;
+    --border-color: #DDD6CA;
     --shadow-color: rgba(15, 23, 42, 0.06);
     --shadow-hover: rgba(15, 23, 42, 0.12);
-    --header-bg: rgba(255, 255, 255, 0.85);
+    --header-bg: rgba(245, 239, 230, 0.94);
+    --header-height: 64px;
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 14px;
@@ -27,19 +28,20 @@
 }
 
 html[data-theme="light"] {
-    --bg-color: #F8FAFC;
-    --surface-color: #FFFFFF;
-    --card-bg: #FFFFFF;
+    --bg-color: #F0EBE3;
+    --surface-color: #F5EFE6;
+    --card-bg: #EFE6D9;
     --text-color: #0F172A;
     --text-muted: #64748B;
     --primary-color: #0369A1;
     --primary-hover: #0284C7;
     --secondary-color: #0D9488;
-    --accent-light: #F0F9FF;
-    --border-color: #E2E8F0;
+    --accent-light: #EEF4F0;
+    --border-color: #DDD6CA;
     --shadow-color: rgba(15, 23, 42, 0.06);
     --shadow-hover: rgba(15, 23, 42, 0.12);
-    --header-bg: rgba(255, 255, 255, 0.85);
+    --header-bg: rgba(245, 239, 230, 0.94);
+    --header-height: 64px;
     color-scheme: light;
 }
 
@@ -97,7 +99,7 @@ html {
 body {
     font-family: var(--font-body);
     margin: 0;
-    padding: 0;
+    padding: var(--header-height) 0 0;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.65;
@@ -186,8 +188,10 @@ header {
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
     padding: 14px 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     width: 100%;
     flex-shrink: 0;
@@ -1201,6 +1205,10 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    :root {
+        --header-height: 52px;
+    }
+
     header {
         padding: 0;
     }
