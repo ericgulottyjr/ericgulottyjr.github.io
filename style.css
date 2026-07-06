@@ -917,62 +917,207 @@ footer p {
    ========================================================================== */
 
 .education {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .education h1 {
     text-align: center;
     font-size: 2.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.education-degrees {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 40px;
+.education-section-title {
+    font-size: 1.25rem;
+    margin: 0 0 20px;
+    color: var(--text-color);
+    text-align: center;
 }
 
-.education-degree {
-    padding: 28px;
+.education-coursework-layout + .education-section-title {
+    margin-top: 36px;
+}
+
+#technical-stack {
+    scroll-margin-top: 80px;
+}
+
+.education-coursework-layout {
+    display: grid;
+    grid-template-columns: minmax(120px, 160px) 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 28px;
+    row-gap: 12px;
+    align-items: start;
+    padding: 24px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     background: var(--card-bg);
 }
 
-.education-degree h2 {
-    font-size: 1.25rem;
-    margin: 0 0 8px;
+.education-institution-name {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    text-align: center;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
     color: var(--text-color);
+    line-height: 1.4;
 }
 
-.education-degree .degree-list {
+.education-crest-cell {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.education-crest {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    object-fit: contain;
+}
+
+.education-degree-tabs {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+    align-self: start;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.education-degree-tabs .stack-tabs {
+    grid-row: 1;
+}
+
+.education-degree-tabs .stack-panels {
+    grid-row: 2;
+}
+
+.coursework-list {
     margin: 0;
     padding-left: 1.25rem;
     color: var(--text-muted);
+    font-size: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.education-degree .degree-list li {
-    margin-bottom: 6px;
-}
-
-.education-section-title {
-    font-size: 1.25rem;
-    margin: 0 0 12px;
-    color: var(--text-color);
-    text-align: center;
-}
-
-.education-placeholder {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 1rem;
+.coursework-list li {
     margin: 0;
+}
+
+.stack-tabs-wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.stack-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border-color);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.stack-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.stack-tab {
+    flex: 1;
+    min-width: max-content;
+    padding: 14px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color var(--transition), background-color var(--transition);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+}
+
+.stack-tab:hover {
+    color: var(--text-color);
+    background-color: var(--accent-light);
+}
+
+.stack-tab.is-active {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom-color: var(--primary-color);
+    background-color: var(--accent-light);
+}
+
+.stack-tab:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: -2px;
+}
+
+.stack-panels {
     padding: 24px;
-    border: 1px dashed var(--border-color);
+}
+
+.education-degree-tabs .stack-panels {
+    padding: 6px 20px;
+}
+
+.stack-panel[hidden] {
+    display: none;
+}
+
+.stack-skills-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.stack-skill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     background: var(--bg-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.stack-skill:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.stack-skill-logo {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    object-fit: contain;
 }
 
 .contact-container {
@@ -1142,6 +1287,46 @@ footer p {
         font-size: 0.875rem;
         padding: 12px;
         justify-content: center;
+    }
+
+    .education-coursework-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        row-gap: 16px;
+    }
+
+    .education-institution-name,
+    .education-crest-cell,
+    .education-degree-tabs {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .education-degree-tabs {
+        display: block;
+        grid-template-rows: none;
+    }
+
+    .education-institution-name {
+        align-self: auto;
+    }
+
+    .education-crest {
+        max-width: 100px;
+    }
+
+    .stack-tab {
+        flex: 0 0 auto;
+        padding: 12px 16px;
+        font-size: 0.8125rem;
+    }
+
+    .stack-panels {
+        padding: 16px;
+    }
+
+    .stack-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .timeline-item {
