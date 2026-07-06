@@ -67,20 +67,107 @@
     <main>
         <section class="education">
             <h1>Education</h1>
-            <p class="section-intro">Academic background in data science and economics from Boston University.</p>
+            <p class="section-intro">Dual degrees from Boston University in data science and economics.</p>
 
-            <div class="education-degrees">
-                <div class="education-degree">
-                    <h2>Boston University</h2>
-                    <ul class="degree-list">
-                        <li>B.S. Data Science</li>
-                        <li>B.A. Economics</li>
-                    </ul>
+            <h3 class="education-section-title">Relevant Coursework</h3>
+            <div class="education-coursework-layout">
+                <p class="education-institution-name">Boston University</p>
+                <div class="education-crest-cell">
+                    <img src="/images/Boston_University_seal.png" alt="Boston University seal" class="education-crest" width="140" height="140" loading="lazy">
+                </div>
+
+                <div class="stack-tabs-wrapper education-degree-tabs">
+                    <div class="stack-tabs" role="tablist" aria-label="Degree coursework">
+                        <button type="button" class="stack-tab is-active" role="tab" id="degree-tab-ds" aria-selected="true" aria-controls="degree-panel-ds">B.S. Data Science</button>
+                        <button type="button" class="stack-tab" role="tab" id="degree-tab-econ" aria-selected="false" aria-controls="degree-panel-econ" tabindex="-1">B.A. Economics</button>
+                    </div>
+
+                    <div class="stack-panels">
+                        <div class="stack-panel is-active" role="tabpanel" id="degree-panel-ds" aria-labelledby="degree-tab-ds">
+                            <ul class="coursework-list">
+                                <li>Deep Learning</li>
+                                <li>Machine Learning &amp; Artificial Intelligence</li>
+                                <li>Cloud Computing</li>
+                                <li>Big Data Workflows</li>
+                                <li>Algorithms</li>
+                                <li>Data Visualization</li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-panel" role="tabpanel" id="degree-panel-econ" aria-labelledby="degree-tab-econ" hidden>
+                            <ul class="coursework-list">
+                                <li>Economics of Risk and Uncertainty</li>
+                                <li>Game Theory</li>
+                                <li>Market Structures</li>
+                                <li>Econometrics</li>
+                                <li>Applied Statistics</li>
+                                <li>Micro/Macroeconomics</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3 class="education-section-title">Relevant Coursework &amp; Skills</h3>
-            <p class="education-placeholder">Coursework highlights and applied skills will be added in an upcoming update.</p>
+            <h3 class="education-section-title" id="technical-stack">Technical Stack</h3>
+            <div class="stack-tabs-wrapper">
+                <div class="stack-tabs" role="tablist" aria-label="Technical stack categories">
+                    <button type="button" class="stack-tab is-active" role="tab" id="stack-tab-languages" aria-selected="true" aria-controls="stack-panel-languages">Languages</button>
+                    <button type="button" class="stack-tab" role="tab" id="stack-tab-ml" aria-selected="false" aria-controls="stack-panel-ml" tabindex="-1">ML / AI</button>
+                    <button type="button" class="stack-tab" role="tab" id="stack-tab-data" aria-selected="false" aria-controls="stack-panel-data" tabindex="-1">Data &amp; Viz</button>
+                    <button type="button" class="stack-tab" role="tab" id="stack-tab-cloud" aria-selected="false" aria-controls="stack-panel-cloud" tabindex="-1">Cloud &amp; Tools</button>
+                </div>
+
+                <div class="stack-panels">
+                    <div class="stack-panel is-active" role="tabpanel" id="stack-panel-languages" aria-labelledby="stack-tab-languages">
+                        <ul class="stack-skills-grid">
+                            <li class="stack-skill"><img src="/images/icons/python.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Python</span></li>
+                            <li class="stack-skill"><img src="/images/icons/postgresql.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>SQL</span></li>
+                            <li class="stack-skill"><img src="/images/icons/rust.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Rust</span></li>
+                            <li class="stack-skill"><img src="/images/icons/typescript.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>TypeScript</span></li>
+                            <li class="stack-skill"><img src="/images/icons/javascript.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>JavaScript</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-panel" role="tabpanel" id="stack-panel-ml" aria-labelledby="stack-tab-ml" hidden>
+                        <ul class="stack-skills-grid">
+                            <li class="stack-skill"><img src="/images/icons/pytorch.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>PyTorch</span></li>
+                            <li class="stack-skill"><img src="/images/icons/tensorflow.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>TensorFlow</span></li>
+                            <li class="stack-skill"><img src="/images/icons/scikitlearn.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>scikit-learn</span></li>
+                            <li class="stack-skill"><img src="/images/icons/huggingface.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Hugging Face</span></li>
+                            <li class="stack-skill"><img src="/images/icons/langchain.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>LangChain</span></li>
+                            <li class="stack-skill"><img src="/images/icons/llamaindex.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>LlamaIndex</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-panel" role="tabpanel" id="stack-panel-data" aria-labelledby="stack-tab-data" hidden>
+                        <ul class="stack-skills-grid">
+                            <li class="stack-skill"><img src="/images/icons/pandas.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Pandas</span></li>
+                            <li class="stack-skill"><img src="/images/icons/numpy.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>NumPy</span></li>
+                            <li class="stack-skill"><img src="/images/icons/polars.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Polars</span></li>
+                            <li class="stack-skill"><img src="/images/icons/postgresql.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>PostgreSQL</span></li>
+                            <li class="stack-skill"><img src="/images/icons/sqlite.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>SQLite</span></li>
+                            <li class="stack-skill"><img src="/images/icons/tableau.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Tableau</span></li>
+                            <li class="stack-skill"><img src="/images/icons/powerbi.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Power BI</span></li>
+                            <li class="stack-skill"><img src="/images/icons/matplotlib.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Matplotlib</span></li>
+                            <li class="stack-skill"><img src="/images/icons/streamlit.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Streamlit</span></li>
+                            <li class="stack-skill"><img src="/images/icons/vuejs.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Vue.js</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-panel" role="tabpanel" id="stack-panel-cloud" aria-labelledby="stack-tab-cloud" hidden>
+                        <ul class="stack-skills-grid">
+                            <li class="stack-skill"><img src="/images/icons/aws.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>AWS</span></li>
+                            <li class="stack-skill"><img src="/images/icons/azure.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Azure</span></li>
+                            <li class="stack-skill"><img src="/images/icons/googlecloud.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Google Cloud</span></li>
+                            <li class="stack-skill"><img src="/images/icons/gams.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>GAMS</span></li>
+                            <li class="stack-skill"><img src="/images/icons/stata.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>STATA</span></li>
+                            <li class="stack-skill"><img src="/images/icons/docker.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Docker</span></li>
+                            <li class="stack-skill"><img src="/images/icons/kubernetes.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Kubernetes</span></li>
+                            <li class="stack-skill"><img src="/images/icons/git.svg" alt="" class="stack-skill-logo" width="24" height="24" loading="lazy"><span>Git</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
