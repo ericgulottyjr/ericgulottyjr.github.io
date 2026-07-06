@@ -88,11 +88,13 @@ function initHeroRoleTypewriter() {
 
     const roles = ['Data Scientist', 'Artificial Intelligence Engineer', 'Economist'];
     let roleIndex = 0;
-    let charIndex = 0;
+    let charIndex = roles[0].length;
     let isDeleting = false;
     const typingSpeed = 80;
     const deletingSpeed = 45;
     const pauseDelay = 2800;
+
+    roleElement.textContent = roles[0];
 
     function tick() {
         const currentRole = roles[roleIndex];
@@ -101,7 +103,7 @@ function initHeroRoleTypewriter() {
         if (isDeleting) {
             charIndex -= 1;
             roleElement.textContent = currentRole.substring(0, charIndex);
-        } else {
+        } else if (charIndex < currentRole.length) {
             charIndex += 1;
             roleElement.textContent = currentRole.substring(0, charIndex);
         }
@@ -118,7 +120,10 @@ function initHeroRoleTypewriter() {
         setTimeout(tick, delay);
     }
 
-    setTimeout(tick, 600);
+    setTimeout(() => {
+        isDeleting = true;
+        tick();
+    }, pauseDelay);
 }
 
 function initTypewriter() {

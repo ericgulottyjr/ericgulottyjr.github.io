@@ -368,11 +368,6 @@ footer p {
     color: var(--secondary-color);
 }
 
-.hero-role-at {
-    color: var(--secondary-color);
-    white-space: pre;
-}
-
 .hero-role-cursor {
     color: var(--secondary-color);
     font-weight: 400;
@@ -471,6 +466,27 @@ footer p {
     font-size: 1.25rem;
     color: var(--primary-color);
     flex-shrink: 0;
+}
+
+.skills-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition), gap var(--transition);
+}
+
+.skills-more:hover {
+    color: var(--primary-hover);
+    gap: 10px;
+}
+
+.skills-more i {
+    font-size: 0.8125rem;
 }
 
 /* ==========================================================================
