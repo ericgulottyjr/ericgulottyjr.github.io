@@ -516,6 +516,24 @@ footer p {
     gap: 24px;
     position: relative;
     margin-top: 40px;
+    padding-left: 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 63px;
+    top: 64px;
+    bottom: 64px;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        var(--border-color) 0%,
+        var(--primary-color) 50%,
+        var(--border-color) 100%
+    );
+    opacity: 0.45;
+    pointer-events: none;
 }
 
 .timeline-item {
@@ -544,6 +562,8 @@ footer p {
 .timeline-logo {
     flex-shrink: 0;
     margin-right: 28px;
+    position: relative;
+    z-index: 1;
 }
 
 .timeline-logo img {
@@ -556,6 +576,8 @@ footer p {
     border: 1px solid var(--border-color);
     transition: border-color var(--transition), transform var(--transition);
     filter: grayscale(15%);
+    position: relative;
+    z-index: 1;
 }
 
 .timeline-item:hover .timeline-logo img {
@@ -1351,6 +1373,10 @@ footer p {
 
     .stack-skills-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline::before {
+        display: none;
     }
 
     .timeline-item {
