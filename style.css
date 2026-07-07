@@ -588,6 +588,17 @@ footer p {
 
 .timeline-content {
     flex-grow: 1;
+    min-width: 0;
+}
+
+.timeline-header {
+    display: block;
+    margin-bottom: 12px;
+    padding-right: 9.5rem;
+}
+
+.timeline-titles {
+    min-width: 0;
 }
 
 .timeline-content h2 {
@@ -606,7 +617,7 @@ footer p {
 .timeline-content h3 {
     color: var(--text-muted);
     font-size: 1.05rem;
-    margin: 0 0 12px;
+    margin: 0;
     font-weight: 500;
 }
 
@@ -664,12 +675,15 @@ footer p {
 }
 
 .timeline-date {
-    font-size: 0.875rem;
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: var(--text-muted);
-    display: inline-block;
-    margin-top: 12px;
-    padding: 4px 0;
+    text-align: right;
+    line-height: 1.4;
+    white-space: nowrap;
     transition: color var(--transition);
 }
 
@@ -1394,14 +1408,24 @@ footer p {
         text-align: center;
     }
 
+    .timeline-header {
+        padding-right: 0;
+        padding-top: 1.75rem;
+        margin-bottom: 12px;
+    }
+
+    .timeline-titles {
+        text-align: center;
+    }
+
     .timeline-skills {
         justify-content: center;
     }
 
     .timeline-date {
-        display: block;
-        text-align: center;
-        margin: 12px auto 0;
+        top: 20px;
+        right: 20px;
+        font-size: 0.75rem;
     }
 
     .read-more {
